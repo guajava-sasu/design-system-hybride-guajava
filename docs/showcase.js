@@ -149,3 +149,23 @@ if (pagination && paginationStatus) {
     if (button.hasAttribute("data-page-step")) selectPage(currentPage + Number(button.dataset.pageStep));
   });
 }
+
+document.querySelectorAll("[data-copy-code]").forEach((button) => {
+  const example = button.closest("[data-code-example]");
+  const code = example?.querySelector("pre code");
+  const status = example?.querySelector(".code-copy-status");
+
+  if (!code || !status) {
+    throw new Error("Chaque bouton de copie doit référencer un extrait et son statut.");
+  }
+
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(code.textContent);
+      status.textContent = "Code copié.";
+    } catch (error) {
+      status.textContent = "Copie impossible. Sélectionnez le code affiché.";
+      console.error("Impossible de copier l'extrait de code.", error);
+    }
+  });
+});

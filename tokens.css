@@ -1,41 +1,77 @@
 :root {
   color-scheme: light;
 
+  --am-color-black: #151515;
   --am-color-white: #ffffff;
-  --am-color-black: #171a1a;
-  --am-color-text: #2d3232;
-  --am-color-text-muted: #596363;
-  --am-color-border: #d6dddd;
-  --am-color-surface: #f5f7f7;
-  --am-color-surface-raised: #ffffff;
+  --am-color-dark-steel-grey: #414141;
+  --am-color-light-grey: #d8d8d8;
+  --am-color-light-blue: #e6eaef;
+  --am-color-hot-orange: #ff3700;
+  --am-color-sky-blue: #0072ce;
+  --am-color-gradient-midnight: #000014;
+  --am-color-gradient-purple: #260c67;
+  --am-color-gradient-dark-pink: #932184;
+  --am-color-gradient-red: #e54749;
+  --am-color-gradient-orange: #f09357;
+  --am-color-gradient-yellow: #ffdf88;
 
-  /* Provisional web accents: validate against the full brand color specification. */
-  --am-color-accent: #c44508;
-  --am-color-sky: #007eae;
-  --am-color-gradient-red: #c21e31;
-  --am-color-gradient-purple: #84236c;
-  --am-color-cta-border: #ff3700;
+  --am-color-text: var(--am-color-dark-steel-grey);
+  --am-color-text-muted: var(--am-color-dark-steel-grey);
+  --am-color-border: var(--am-color-light-grey);
+  --am-color-surface: var(--am-color-light-blue);
+  --am-color-surface-raised: var(--am-color-white);
+  --am-color-accent: var(--am-color-hot-orange);
+  --am-color-sky: var(--am-color-sky-blue);
+  --am-color-cta-border: var(--am-color-hot-orange);
   --am-color-cta-text: var(--am-color-text);
   --am-color-cta-text-active: var(--am-color-white);
-  --am-gradient-cta: linear-gradient(
+  --am-gradient-master: linear-gradient(
     90deg,
-    #260c67,
-    #932184,
-    #e54749,
-    #f09357
+    var(--am-color-gradient-midnight) 0%,
+    var(--am-color-gradient-purple) 18%,
+    var(--am-color-gradient-dark-pink) 38%,
+    var(--am-color-gradient-red) 60%,
+    var(--am-color-gradient-orange) 80%,
+    var(--am-color-gradient-yellow) 100%
   );
-  --am-gradient-brand: linear-gradient(
-    105deg,
-    var(--am-color-accent) 0%,
-    var(--am-color-gradient-red) 52%,
-    var(--am-color-gradient-purple) 100%
+  --am-gradient-web: linear-gradient(
+    90deg,
+    var(--am-color-gradient-midnight) 0%,
+    var(--am-color-gradient-purple) 18%,
+    var(--am-color-gradient-dark-pink) 42%,
+    var(--am-color-gradient-red) 68%,
+    var(--am-color-gradient-orange) 100%
   );
+  --am-gradient-cta:
+    linear-gradient(rgb(0 0 0 / 40%), rgb(0 0 0 / 40%)),
+    var(--am-gradient-web);
+  --am-gradient-brand: var(--am-gradient-web);
 
-  --am-color-action-disabled: #ffd7cc;
-  --am-color-action-positive: #70a489;
-  --am-color-action-alert: #cc2c00;
+  --am-action-disabled: #ffd7cc;
+  --am-action-positive: #70a489;
+  --am-action-alert: #cc2c00;
+  --am-color-action-disabled: var(--am-action-disabled);
+  --am-color-action-positive: var(--am-action-positive);
+  --am-color-action-alert: var(--am-action-alert);
 
-  --am-font-family: "Gilroy for ArcelorMittal", "Gilroy", Arial, sans-serif;
+  --am-font-family: "GilroyforArcelorMittal", sans-serif;
+  --am-font-family-heading: "GilroyforArcelorMittal-SmBd", sans-serif;
+  --am-font-size-h1: 4.125rem;
+  --am-font-size-h2: 3.125rem;
+  --am-font-size-h3: 2.3125rem;
+  --am-font-size-h4: 1.75rem;
+  --am-font-size-h5: 1.3125rem;
+  --am-line-height-h1: 5.15625rem;
+  --am-line-height-h2: 3.90625rem;
+  --am-line-height-h3: 2.6375rem;
+  --am-line-height-h4: 2.1875rem;
+  --am-line-height-h5: 1.6375rem;
+  --am-font-size-body-1: 1rem;
+  --am-line-height-body-1: 1.25rem;
+  --am-font-size-body-2: 0.875rem;
+  --am-line-height-body-2: 1.09375rem;
+  --am-font-size-label: 0.875rem;
+  --am-line-height-label: 1.09375rem;
   --am-font-size-xs: 0.75rem;
   --am-font-size-sm: 0.875rem;
   --am-font-size-md: 1rem;
@@ -52,10 +88,18 @@
   --am-space-6: 3rem;
   --am-space-8: 4rem;
 
+  --am-layout-space-2xs: 1rem;
+  --am-layout-space-xs: 1.5rem;
+  --am-layout-space-sm: 2rem;
+  --am-layout-space-md: 3rem;
+  --am-layout-space-lg: 4rem;
+  --am-layout-space-xl: 6rem;
+  --am-layout-space-xl2: 10rem;
+
   --am-radius-control: 0.25rem;
   --am-radius-card: 0.5rem;
   --am-shadow-card: 0 0.25rem 1.25rem rgb(23 26 26 / 8%);
-  --am-focus-ring: 0 0 0 3px rgb(0 126 174 / 35%);
+  --am-focus-ring: 0 0 0 3px rgb(0 114 206 / 35%);
 
   --am-container-max: 71.25rem;
   --am-grid-gutter: 1.875rem;

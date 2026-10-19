@@ -40,28 +40,54 @@ button,
   cursor: pointer;
 }
 
-:where(h1, h2, h3, h4, h5, h6) {
+:where(h1, h2, h3, h4, h5, h6, .am-h1, .am-h2, .am-h3, .am-h4, .am-h5) {
   margin: 0;
   color: var(--am-color-text);
-  font-weight: 600;
+  font-family: var(--am-font-family-heading);
+  font-weight: 400;
   line-height: var(--am-line-height-heading);
+  text-decoration: none;
   text-wrap: balance;
 }
 
-h1 {
-  font-size: clamp(2.25rem, 5vw, 4rem);
+h1,
+.am-h1 {
+  font-size: var(--am-font-size-h1);
+  line-height: var(--am-line-height-h1);
 }
 
-h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+h2,
+.am-h2 {
+  font-size: var(--am-font-size-h2);
+  line-height: var(--am-line-height-h2);
 }
 
-h3 {
-  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+h3,
+.am-h3 {
+  font-size: var(--am-font-size-h3);
+  line-height: var(--am-line-height-h3);
+}
+
+h4,
+.am-h4 {
+  font-size: var(--am-font-size-h4);
+  line-height: var(--am-line-height-h4);
+}
+
+h5,
+.am-h5 {
+  font-size: var(--am-font-size-h5);
+  line-height: var(--am-line-height-h5);
 }
 
 p {
   margin: 0;
+}
+
+strong,
+b {
+  font-family: var(--am-font-family-heading);
+  font-weight: 400;
 }
 
 a {

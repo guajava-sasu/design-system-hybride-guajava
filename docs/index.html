@@ -13,7 +13,7 @@
     <header class="site-header">
       <a class="wordmark" href="#accueil">
         <span class="wordmark-mark" aria-hidden="true">G</span>
-        <span>guajava<span class="wordmark-dot">.</span></span>
+        <span>guajava<span class="wordmark-dot" aria-hidden="true">.</span></span>
       </a>
       <nav class="site-nav" aria-label="Navigation principale">
         <a href="#fondations">Fondations</a>
@@ -72,24 +72,399 @@
           <article class="foundation-card color-card">
             <div class="card-heading"><span>01 / COULEUR</span><span aria-hidden="true">↗</span></div>
             <h3>Une palette<br>qui a du sens.</h3>
-            <p>Des couleurs d'accent pour guider, des tons neutres pour respirer et des couleurs d'action réservées aux messages.</p>
+            <p>Orange et bleu ciel comme accents, neutres pour la lisibilité et dégradé pour les appels à l'action.</p>
             <div class="swatches" role="img" aria-label="Aperçu des couleurs de la palette">
-              <span class="swatch swatch-orange"></span><span class="swatch swatch-red"></span>
-              <span class="swatch swatch-purple"></span><span class="swatch swatch-sky"></span>
-              <span class="swatch swatch-neutral"></span>
+              <span class="swatch swatch-orange"></span><span class="swatch swatch-sky"></span>
+              <span class="swatch swatch-dark"></span><span class="swatch swatch-light-blue"></span>
             </div>
           </article>
           <article class="foundation-card type-card">
             <div class="card-heading"><span>02 / TYPOGRAPHIE</span><span aria-hidden="true">↗</span></div>
             <h3>Le ton juste,<br>à chaque taille.</h3>
-            <p>Une hiérarchie simple, avec Gilroy en priorité et des alternatives robustes quand la police n'est pas disponible.</p>
-            <div class="type-sample"><strong>Aa</strong><span>Gilroy · Semibold<br>Regular pour les textes</span></div>
+            <p>Gilroy Semibold pour les titres, Gilroy Regular pour le corps de texte.</p>
+            <div class="type-sample type-sample--heading"><strong>Aa</strong><span><b>GilroyforArcelorMittal-SmBd</b><code>font-family: "GilroyforArcelorMittal-SmBd", sans-serif;</code></span></div>
+            <div class="type-sample type-sample--body"><strong>Aa</strong><span><b>GilroyforArcelorMittal</b><code>font-family: "GilroyforArcelorMittal", sans-serif;</code></span></div>
           </article>
           <article class="foundation-card grid-card">
             <div class="card-heading"><span>03 / GRILLE</span><span aria-hidden="true">↗</span></div>
             <h3>Une structure<br>qui s'adapte.</h3>
             <p>12 colonnes sur desktop, 6 sur tablette, 2 sur mobile. Le même contenu, bien composé partout.</p>
             <div class="grid-sample" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+        </div>
+
+        <div class="foundation-details-grid">
+          <article class="foundation-detail-card color-detail">
+            <div class="card-heading"><span>04 / PALETTE WEB &amp; ASSOCIATIONS</span><span aria-hidden="true">◉</span></div>
+            <h3>Les couleurs et leurs usages.</h3>
+            <p class="am-body-1">La palette web est liée à la palette générale ArcelorMittal, mais elle lui est propre. Respectez les associations ci-dessous : les couleurs vives sont des accents, les neutres structurent les contenus.</p>
+
+            <h4>Couleurs imposées</h4>
+            <div class="brand-color-grid">
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-midnight"></span>
+                <strong>Midnight</strong><code>#000014 · RGB 0, 0, 20</code>
+                <small>Dégradé · texte blanc</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-purple"></span>
+                <strong>Purple</strong><code>#260C67 · RGB 38, 12, 103</code>
+                <small>Dégradé · texte blanc</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-dark-pink"></span>
+                <strong>Dark pink</strong><code>#932184 · RGB 147, 33, 132</code>
+                <small>Dégradé · texte blanc</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-gradient-red"></span>
+                <strong>Red</strong><code>#E54749 · RGB 229, 71, 73</code>
+                <small>Dégradé · texte noir</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-gradient-orange"></span>
+                <strong>Orange gradient</strong><code>#F09357 · RGB 240, 147, 87</code>
+                <small>Dégradé web max. · texte noir</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-gradient-yellow"></span>
+                <strong>Yellow</strong><code>#FFDF88 · RGB 255, 223, 136</code>
+                <small>Dégradé master · hors limite web</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-hot-orange"></span>
+                <strong>Hot orange</strong><code>#FF3700 · RGB 255, 55, 0</code>
+                <small>Accent · texte noir ou blanc</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-sky-blue"></span>
+                <strong>Sky blue</strong><code>#0072CE · RGB 0, 114, 206</code>
+                <small>Accent / fond de module · texte blanc</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-dark-steel"></span>
+                <strong>Dark steel grey</strong><code>#414141 · RGB 65, 65, 65</code>
+                <small>Neutre / fond de module · texte blanc</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-white"></span>
+                <strong>White</strong><code>#FFFFFF · RGB 255, 255, 255</code>
+                <small>Fond neutre · texte noir ou accent orange</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-black"></span>
+                <strong>Black</strong><code>#151515 · RGB 21, 21, 21</code>
+                <small>Neutre · texte blanc ou accent orange</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-light-grey"></span>
+                <strong>Light grey</strong><code>#D8D8D8 · RGB 216, 216, 216</code>
+                <small>Fond de module · texte noir ou accent orange</small>
+              </div>
+              <div class="brand-color-token">
+                <span class="brand-color-swatch color-light-blue"></span>
+                <strong>Light blue</strong><code>#E6EAEF · RGB 230, 234, 239</code>
+                <small>Fond de module · texte noir ou accent orange</small>
+              </div>
+            </div>
+
+            <div class="gradient-reference">
+              <div>
+                <span class="gradient-reference-bar gradient-reference-bar--master" role="img" aria-label="Dégradé master complet, du midnight au jaune"></span>
+                <p><strong>Master artwork</strong> · #000014 → #260C67 → #932184 → #E54749 → #F09357 → #FFDF88</p>
+              </div>
+              <div>
+                <span class="gradient-reference-bar gradient-reference-bar--web" role="img" aria-label="Dégradé autorisé sur le web, du purple à l'orange gradient"></span>
+                <p><strong>Maximum web</strong> · arrêter à #F09357 ; ne pas inclure le jaune #FFDF88 sur les éléments web.</p>
+              </div>
+            </div>
+
+            <div class="brand-reference-images">
+              <figure>
+                <img src="./assets/branding/primary-colour-palette.png" width="800" height="447" alt="Référence de la palette primaire : dégradé master, dark steel grey, hot orange, sky blue et white avec les valeurs RGB et hexadécimales.">
+                <figcaption>Référence de la palette primaire fournie dans le branding.</figcaption>
+              </figure>
+              <figure>
+                <img src="./assets/branding/primary-colour-pairs.png" width="800" height="750" alt="Référence des paires de couleurs primaires et de support, avec les premiers plans blanc ou noir et la limite web du dégradé à #F09357.">
+                <figcaption>Référence des associations de couleurs et de la limite du spectre web.</figcaption>
+              </figure>
+            </div>
+
+            <div class="color-examples-grid">
+              <article class="color-example">
+                <h4>Appels à l'action et boutons icônes</h4>
+                <div class="color-example-preview">
+                  <div class="am-cluster">
+                    <button class="am-button am-button--primary" type="button">Action principale</button>
+                    <button class="am-button am-button--icon" type="button" aria-label="Ajouter aux favoris" title="Ajouter aux favoris">
+                      <svg class="am-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"></path></svg>
+                    </button>
+                  </div>
+                  <p class="example-note">Survolez ou placez le focus au clavier pour révéler le dégradé.</p>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;button class="am-button am-button--primary"&gt;Action principale&lt;/button&gt;
+&lt;button class="am-button am-button--icon" aria-label="Ajouter aux favoris"&gt;
+  &lt;svg class="am-icon" viewBox="0 0 24 24" aria-hidden="true"&gt;…&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="color-example">
+                <h4>Orange : actions et repères ciblés</h4>
+                <div class="color-example-preview">
+                  <div class="am-cluster">
+                    <button class="am-button am-button--hot-orange" type="button">Action accent</button>
+                    <span class="am-badge am-badge--accent">À lire</span>
+                  </div>
+                  <p class="am-kicker">Information clé</p>
+                  <nav aria-label="Fil d'Ariane">
+                    <ol class="am-breadcrumb"><li><a href="#accueil">Accueil</a></li><li><a href="#fondations">Fondations</a></li><li aria-current="page">Couleurs</li></ol>
+                  </nav>
+                  <p><a class="am-link" href="#composants">Lien d'action</a></p>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;button class="am-button am-button--hot-orange"&gt;Action accent&lt;/button&gt;
+&lt;span class="am-badge am-badge--accent"&gt;À lire&lt;/span&gt;
+&lt;p class="am-kicker"&gt;Information clé&lt;/p&gt;
+&lt;nav aria-label="Fil d'Ariane"&gt;
+  &lt;ol class="am-breadcrumb"&gt;
+    &lt;li&gt;&lt;a href="/"&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+    &lt;li aria-current="page"&gt;Couleurs&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="color-example">
+                <h4>Bleu ciel : accent ou fond de module</h4>
+                <div class="color-example-preview am-flow">
+                  <button class="am-button am-button--sky" type="button">Action secondaire</button>
+                  <section class="color-module-demo am-theme--sky-blue am-layout-padding-2xs">
+                    <h5>Module bleu ciel</h5>
+                    <p>Le blanc est le premier choix pour le texte sur ce fond.</p>
+                  </section>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;button class="am-button am-button--sky"&gt;Action secondaire&lt;/button&gt;
+&lt;section class="am-theme--sky-blue am-layout-padding-2xs"&gt;
+  &lt;h2&gt;Module bleu ciel&lt;/h2&gt;
+  &lt;p&gt;Texte blanc sur fond #0072CE.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="color-example">
+                <h4>Fonds de modules et textes neutres</h4>
+                <div class="color-example-preview color-module-pairings">
+                  <section class="color-module-demo am-theme--dark-steel-grey am-layout-padding-2xs"><h5>Dark steel grey</h5><p>Texte blanc · #414141</p></section>
+                  <section class="color-module-demo am-theme--black am-layout-padding-2xs"><h5>Black</h5><p>Texte blanc · #151515</p></section>
+                  <section class="color-module-demo am-theme--light-grey am-layout-padding-2xs"><h5>Light grey</h5><p>Texte noir · #D8D8D8</p></section>
+                  <section class="color-module-demo am-theme--light-blue am-layout-padding-2xs"><h5>Light blue</h5><p>Texte noir · #E6EAEF</p></section>
+                  <section class="color-module-demo am-theme--white am-layout-padding-2xs"><h5>White</h5><p>Texte noir ou action orange · #FFFFFF</p></section>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;section class="am-theme--dark-steel-grey am-layout-padding-2xs"&gt;Texte blanc&lt;/section&gt;
+&lt;section class="am-theme--black am-layout-padding-2xs"&gt;Texte blanc&lt;/section&gt;
+&lt;section class="am-theme--light-grey am-layout-padding-2xs"&gt;Texte noir&lt;/section&gt;
+&lt;section class="am-theme--light-blue am-layout-padding-2xs"&gt;Texte noir&lt;/section&gt;
+&lt;section class="am-theme--white am-layout-padding-2xs"&gt;Texte noir&lt;/section&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="color-example">
+                <h4>Dégradé dans les graphiques</h4>
+                <div class="color-example-preview am-flow">
+                  <div class="brand-chart-demo brand-chart" role="img" aria-label="Exemple de graphique de progression avec un dégradé de marque">
+                    <span style="--chart-value: 78%"></span><span style="--chart-value: 56%"></span><span style="--chart-value: 34%"></span>
+                  </div>
+                  <p class="example-note">Les graphiques, diagrammes et illustrations peuvent utiliser le spectre de marque.</p>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>                  &lt;div class="brand-chart brand-chart-demo" role="img" aria-label="Progression"&gt;
+  &lt;span style="--chart-value: 78%"&gt;&lt;/span&gt;
+  &lt;span style="--chart-value: 56%"&gt;&lt;/span&gt;
+  &lt;span style="--chart-value: 34%"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;style&gt;
+  .brand-chart-demo {
+    display: flex;
+    height: 10rem;
+    align-items: end;
+    gap: 1rem;
+  }
+  .brand-chart span {
+    width: 20%;
+    height: var(--chart-value);
+    background: var(--am-gradient-web);
+  }
+&lt;/style&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="color-example">
+                <h4>Exception illustrée : beige approuvé au cas par cas</h4>
+                <div class="color-example-preview">
+                  <section class="exception-color-demo">
+                    <span class="am-kicker">EXEMPLE NON CONTRACTUEL</span>
+                    <p>Une illustration peut justifier un fond doré ou beige pour créer une ambiance cohérente.</p>
+                    <small>Le ton de cette démo n'est pas une couleur officielle à réutiliser.</small>
+                  </section>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;section class="story-module"&gt;
+  &lt;h2&gt;Un récit lié à l'illustration&lt;/h2&gt;
+  &lt;p&gt;Utiliser uniquement la teinte validée pour ce projet.&lt;/p&gt;
+&lt;/section&gt;
+&lt;style&gt;
+  .story-module {
+    background: var(--project-approved-story-color);
+  }
+&lt;/style&gt;
+&lt;!-- Faire approuver la valeur par l'équipe de marque avant usage. --&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+                <p class="example-note">Ce beige est un simple aperçu de la page de démonstration, pas un token de la librairie. Pour toute nouvelle couleur, contacter l'équipe de marque à Londres.</p>
+              </article>
+            </div>
+            <p class="color-rule-note"><strong>Règle générale :</strong> titres et textes courants restent neutres. Réservez l'orange aux petits titres, tags, dates, liens, breadcrumbs et états sélectionnés ; sur fond clair, gardez le texte neutre et faites porter l'accent orange par le fond d'un tag, un soulignement ou une bordure. Évitez de multiplier orange et bleu dans une même interface. Les tokens positifs, alerte et désactivé restent réservés aux états fonctionnels. Sur orange, le noir convient au texte courant ; le blanc est à réserver aux grands libellés.</p>
+          </article>
+
+          <article class="foundation-detail-card typography-detail">
+            <div class="card-heading"><span>05 / ÉCHELLES TYPOGRAPHIQUES</span><span aria-hidden="true">Aa</span></div>
+            <h3>Titres et corps de texte.</h3>
+            <p class="am-body-1">Les classes de titres et les balises sémantiques partagent la même échelle. Utilisez les balises HTML pour préserver la structure du document.</p>
+            <div class="heading-scale">
+              <div class="heading-sample"><p class="am-h1">Heading 1</p><code>h1 · .am-h1 — 66 / 82,5 px</code></div>
+              <div class="heading-sample"><p class="am-h2">Heading 2</p><code>h2 · .am-h2 — 50 / 62,5 px</code></div>
+              <div class="heading-sample"><p class="am-h3">Heading 3</p><code>h3 · .am-h3 — 37 / 42,2 px</code></div>
+              <div class="heading-sample"><p class="am-h4">Heading 4</p><code>h4 · .am-h4 — 28 / 35 px</code></div>
+              <div class="heading-sample"><p class="am-h5">Heading 5</p><code>h5 · .am-h5 — 21 / 26,2 px</code></div>
+            </div>
+            <div class="body-scale">
+              <p class="am-body-1"><strong>Body Copy 1 Regular</strong> — 16 / 20 px. Texte courant et contenu de lecture.</p>
+              <p class="am-body-1 am-body-1--semibold"><strong>Body Copy 1 Semibold</strong> — 16 / 20 px. Emphase ponctuelle.</p>
+              <p class="am-body-2"><strong>Body Copy 2 Regular</strong> — 14 / 17,5 px. Informations secondaires et aides.</p>
+              <p class="am-label"><strong>Label Semibold</strong> — 14 / 17,5 px. Libellé de champ, par exemple.</p>
+            </div>
+            <pre><code>&lt;h2&gt;Un titre de section&lt;/h2&gt;
+&lt;h2 class="am-h2"&gt;Un titre avec la classe utilitaire&lt;/h2&gt;
+&lt;p class="am-body-2"&gt;Un texte secondaire.&lt;/p&gt;</code></pre>
+          </article>
+
+          <article class="foundation-detail-card spacing-detail">
+            <div class="card-heading"><span>06 / ESPACEMENTS DE MISE EN PAGE</span><span aria-hidden="true">↕</span></div>
+            <h3>Un rythme fondé sur 8 px.</h3>
+            <p>Ces tokens Frontify complètent les espacements de composants. Les classes de gap et de padding consomment les mêmes valeurs.</p>
+            <ul class="layout-space-scale" aria-label="Échelle des espacements de mise en page">
+              <li><code>2xs</code><span>16 px</span><i style="--space-preview: var(--am-layout-space-2xs)"></i><code>--am-layout-space-2xs</code></li>
+              <li><code>xs</code><span>24 px</span><i style="--space-preview: var(--am-layout-space-xs)"></i><code>--am-layout-space-xs</code></li>
+              <li><code>sm</code><span>32 px</span><i style="--space-preview: var(--am-layout-space-sm)"></i><code>--am-layout-space-sm</code></li>
+              <li><code>md</code><span>48 px</span><i style="--space-preview: var(--am-layout-space-md)"></i><code>--am-layout-space-md</code></li>
+              <li><code>lg</code><span>64 px</span><i style="--space-preview: var(--am-layout-space-lg)"></i><code>--am-layout-space-lg</code></li>
+              <li><code>xl</code><span>96 px</span><i style="--space-preview: var(--am-layout-space-xl)"></i><code>--am-layout-space-xl</code></li>
+              <li><code>xl2</code><span>160 px</span><i style="--space-preview: var(--am-layout-space-xl2)"></i><code>--am-layout-space-xl2</code></li>
+            </ul>
+            <div class="layout-gap-demo am-layout-stack am-layout-gap-xs" aria-label="Exemple d'une pile avec 24 pixels d'espacement">
+              <span>Élément 1</span><span>Élément 2</span>
+            </div>
+            <pre><code>&lt;div class="am-layout-stack am-layout-gap-xs"&gt;…&lt;/div&gt;
+&lt;article class="am-layout-padding-md"&gt;…&lt;/article&gt;
+/* CSS : gap: var(--am-layout-space-xs); */</code></pre>
+          </article>
+
+          <article class="foundation-detail-card action-detail">
+            <div class="card-heading"><span>07 / ACTION COLOUR PALETTE</span><span aria-hidden="true">!</span></div>
+            <h3>Informer, jamais décorer.</h3>
+            <p>Ces trois couleurs ne s'utilisent que lorsqu'il faut notifier une action positive, une erreur ou une indisponibilité. Pas de titres, de corps de texte, de navigation, de listes, de tableaux ni de fonds de modules colorés avec cette palette.</p>
+            <div class="action-color-grid">
+              <article class="action-color-example">
+                <h4>Action - Disabled</h4>
+                <span class="action-color-value action-color-value--disabled">#FFD7CC · RGB 255, 215, 204 · --am-action-disabled</span>
+                <div class="action-color-preview">
+                  <button class="am-button am-button--secondary" type="button" disabled>Envoi indisponible</button>
+                  <p class="am-body-2">À réserver à un CTA qui ne fonctionne pas ou n'est pas disponible.</p>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;button class="am-button am-button--secondary" disabled&gt;
+  Envoi indisponible
+&lt;/button&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+              <article class="action-color-example">
+                <h4>Action - Positive</h4>
+                <span class="action-color-value action-color-value--positive">#70A489 · RGB 112, 164, 137 · --am-action-positive</span>
+                <div class="action-color-preview">
+                  <div class="am-alert am-alert--success" role="status">
+                    <strong>Enregistrement terminé</strong>
+                    <p class="am-body-2">Vos modifications ont bien été prises en compte.</p>
+                  </div>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;div class="am-alert am-alert--success" role="status"&gt;
+  &lt;strong&gt;Enregistrement terminé&lt;/strong&gt;
+  &lt;p&gt;Vos modifications ont bien été prises en compte.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+              <article class="action-color-example">
+                <h4>Action - Alert</h4>
+                <span class="action-color-value action-color-value--alert">#CC2C00 · RGB 204, 44, 0 · --am-action-alert</span>
+                <div class="action-color-preview">
+                  <div class="am-alert am-alert--error" role="alert">
+                    <strong>Une erreur est survenue</strong>
+                    <p class="am-body-2">Vérifiez les informations avant de réessayer.</p>
+                  </div>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;div class="am-alert am-alert--error" role="alert"&gt;
+  &lt;strong&gt;Une erreur est survenue&lt;/strong&gt;
+  &lt;p&gt;Vérifiez les informations avant de réessayer.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+            </div>
+            <p class="example-note">Les alertes gardent un fond neutre et un texte neutre ; la couleur d'action reste limitée au repère de statut. Ne pas réutiliser ces couleurs pour une action disponible, un lien ou un module.</p>
+          </article>
+
+          <article class="foundation-detail-card icon-detail">
+            <div class="card-heading"><span>08 / ICONOGRAPHIE</span><span aria-hidden="true">◇</span></div>
+            <h3>Une loupe sur la grille 24 × 24.</h3>
+            <p>Une grille de 24 px avec une marge intérieure de 4 px garantit une taille minimale lisible. Ne déformez pas les icônes ; gardez un trait visible, notamment pour les flèches et les menus mobiles.</p>
+            <div class="icon-guideline-demo">
+              <svg class="am-icon" viewBox="0 0 24 24" role="img" aria-labelledby="icon-demo-title">
+                <title id="icon-demo-title">Loupe dessinée dans une grille de 24 pixels</title>
+                <circle cx="10.5" cy="10.5" r="5.5"></circle>
+                <path d="m15 15 4 4"></path>
+              </svg>
+              <span>Loupe · 24 × 24 px · marge intérieure 4 px</span>
+            </div>
+            <div class="color-example-code" data-code-example>
+              <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+              <pre><code>&lt;svg class="am-icon" viewBox="0 0 24 24" role="img" aria-labelledby="search-icon-title"&gt;
+  &lt;title id="search-icon-title"&gt;Rechercher&lt;/title&gt;
+  &lt;circle cx="10.5" cy="10.5" r="5.5"&gt;&lt;/circle&gt;
+  &lt;path d="m15 15 4 4"&gt;&lt;/path&gt;
+&lt;/svg&gt;</code></pre>
+              <span class="code-copy-status" aria-live="polite"></span>
+            </div>
           </article>
         </div>
       </section>
@@ -368,7 +743,7 @@
 
     <footer class="site-footer">
       <div class="am-container footer-content">
-        <a class="wordmark" href="#accueil"><span class="wordmark-mark" aria-hidden="true">G</span><span>guajava<span class="wordmark-dot">.</span></span></a>
+        <a class="wordmark" href="#accueil"><span class="wordmark-mark" aria-hidden="true">G</span><span>guajava<span class="wordmark-dot" aria-hidden="true">.</span></span></a>
         <span>Un système commun. Des projets singuliers.</span>
         <span>Design system · v0.1</span>
       </div>

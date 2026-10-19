@@ -60,14 +60,28 @@ Les applications peuvent surcharger les propriétés personnalisées après l'im
 
 ```css
 :root {
-  --am-color-accent: #c44508;
+  --am-color-accent: #ff3700;
+  --am-color-sky-blue: #0072ce;
   --am-radius-control: 0.375rem;
 }
 ```
 
-Les valeurs de couleur qui ne figurent pas explicitement dans l'export des recommandations sont des valeurs provisoires. Elles sont centralisées dans `tokens.css` et devront être confirmées à partir des sources de marque avant une mise en production.
+La palette web officielle et ses associations sont documentées dans la galerie. Le dégradé master va de `#000014` à `#FFDF88`, mais le dégradé web s'arrête à `#F09357`. Les couleurs d'action fonctionnelles non présentes dans la palette restent réservées à leurs états ; les couleurs exceptionnelles de récit/illustration doivent être approuvées par l'équipe de marque. Toute autre valeur non explicitement fournie par la charte est provisoire.
 
-La vitrine charge les deux fichiers Gilroy WOFF2 fournis dans les sources de branding, depuis `docs/assets/fonts/`. Ces fichiers servent à la documentation et ne sont pas intégrés au paquet npm. Les polices et logos de marque ne sont pas couverts par la licence MIT : confirmez les droits de redistribution avant de publier le dépôt ou de les héberger ailleurs. Une application peut déclarer sa propre police autorisée et surcharger `--am-font-family`.
+La charte demande Gilroy Regular pour les textes et Gilroy SemiBold pour les titres :
+
+```css
+font-family: "GilroyforArcelorMittal", sans-serif;
+font-family: "GilroyforArcelorMittal-SmBd", sans-serif;
+```
+
+Ces familles sont configurées dans `--am-font-family` et `--am-font-family-heading`. La vitrine charge les fichiers Gilroy WOFF2 fournis dans les sources de branding depuis `docs/assets/fonts/`, mais ne les intègre pas au paquet npm. Les polices et logos de marque ne sont pas couverts par la licence MIT : confirmez les droits de redistribution avant de publier le dépôt ou de les héberger dans une application. Les applications clientes doivent héberger les fichiers autorisés puis déclarer les familles correspondantes.
+
+Les styles `h1` à `h5` et les classes `.am-h1` à `.am-h5` partagent les tailles et interlignes de la charte. `.am-body-1`, `.am-body-1--semibold`, `.am-body-2` et `.am-label` exposent les styles de texte. Les espacements de mise en page Frontify sont disponibles en tokens (`--am-layout-space-*`), en classes `am-layout-gap-*` et `am-layout-padding-*`. La galerie locale montre aussi la grille d'icônes 24 × 24 px et un exemple de loupe.
+
+Les tokens `--am-action-disabled`, `--am-action-positive` et `--am-action-alert` sont réservés aux notifications fonctionnelles : état indisponible d'un CTA, succès et alerte. Les alertes gardent un fond et un texte neutres, et ces couleurs ne servent ni aux titres, ni au corps de texte, ni aux liens, listes, tableaux ou fonds de modules.
+
+Les boutons CTA et les boutons icônes révèlent le dégradé web au survol/focus avec un voile sombre de 40 % pour préserver le contraste du premier plan blanc. `am-theme--*` associe un fond de module à une couleur de texte recommandée ; `.am-kicker`, `.am-badge--accent`, `.am-badge--sky` et `.am-breadcrumb` couvrent les usages d'accent autorisés.
 
 ## Développement
 
