@@ -170,10 +170,10 @@
 .am-link::after {
   position: absolute;
   right: 0;
-  bottom: -0.15em;
+  bottom: calc(0rem - var(--am-space-1));
   left: 0;
   height: 1px;
-  background: var(--am-color-text);
+  background: currentColor;
   content: "";
   pointer-events: none;
   transform: scaleX(1);
@@ -187,22 +187,18 @@
 
 @keyframes am-link-underline {
   0% {
-    background: var(--am-color-text);
     transform: scaleX(1);
   }
 
   38% {
-    background: var(--am-color-text);
     transform: scaleX(0);
   }
 
   48% {
-    background: var(--am-gradient-web);
     transform: scaleX(0);
   }
 
   100% {
-    background: var(--am-gradient-web);
     transform: scaleX(1);
   }
 }
@@ -227,6 +223,7 @@
 .am-breadcrumb a {
   color: var(--am-color-text);
   text-decoration-color: var(--am-color-hot-orange);
+  text-underline-offset: var(--am-space-1);
 }
 
 .am-breadcrumb [aria-current="page"] {

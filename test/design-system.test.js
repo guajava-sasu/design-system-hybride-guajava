@@ -49,8 +49,11 @@ test("components include keyboard focus and reduced-motion support", async () =>
   assert.match(components, /width:\s*100%;/);
   assert.match(components, /width 350ms ease/);
   assert.match(components, /\.am-link\s*\{[^}]*text-decoration:\s*none;/s);
+  assert.match(components, /\.am-link::after\s*\{[^}]*bottom:\s*calc\(0rem - var\(--am-space-1\)\);/s);
   assert.match(components, /\.am-link:hover::after,[\s\S]*?animation:\s*am-link-underline 600ms/);
-  assert.match(components, /@keyframes am-link-underline[\s\S]*?38%[\s\S]*?transform:\s*scaleX\(0\)[\s\S]*?48%[\s\S]*?var\(--am-gradient-web\)[\s\S]*?100%[\s\S]*?transform:\s*scaleX\(1\)/);
+  assert.match(components, /\.am-link::after\s*\{[^}]*background:\s*currentColor;/s);
+  assert.match(components, /@keyframes am-link-underline[\s\S]*?38%[\s\S]*?transform:\s*scaleX\(0\)[\s\S]*?48%[\s\S]*?transform:\s*scaleX\(0\)[\s\S]*?100%[\s\S]*?transform:\s*scaleX\(1\)/);
+  assert.match(components, /\.am-breadcrumb a\s*\{[^}]*text-underline-offset:\s*var\(--am-space-1\);/s);
   assert.match(tokens, /--am-gradient-cta:/);
   assert.match(foundation, /prefers-reduced-motion:\s*reduce/);
 });

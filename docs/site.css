@@ -289,7 +289,7 @@ body {
   display: inline-block;
   min-width: 1.5rem;
   margin-right: 0.5rem;
-  color: var(--am-color-black);
+  color: var(--am-color-white);
   background: var(--am-color-hot-orange);
   text-align: center;
 }
