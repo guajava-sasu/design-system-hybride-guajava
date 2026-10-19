@@ -12,7 +12,7 @@
     "./utilities.css": "./utilities.css",
     "./components.css": "./components.css"
   },
-  "files": [ 
+  "files": [
     "*.css",
     "README.md",
     "LICENSE"

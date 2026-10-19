@@ -29,11 +29,19 @@ test("design tokens keep the spacing scale on multiples of eight", async () => {
 });
 
 test("responsive grid follows the 12, 6 and 2 column brand layouts", async () => {
-  const utilities = await readCss("utilities.css");
+  const [utilities, tokens] = await Promise.all([
+    readCss("utilities.css"),
+    readCss("tokens.css")
+  ]);
 
-  assert.match(utilities, /grid-template-columns:\s*repeat\(12,/);
-  assert.match(utilities, /grid-template-columns:\s*repeat\(6,/);
-  assert.match(utilities, /grid-template-columns:\s*repeat\(2,/);
+  assert.match(tokens, /--am-grid-columns:\s*12;/);
+  assert.match(tokens, /--am-grid-columns-tablet:\s*6;/);
+  assert.match(tokens, /--am-grid-columns-mobile:\s*2;/);
+  assert.match(utilities, /grid-template-columns:\s*repeat\(var\(--am-grid-columns\),/);
+  assert.match(utilities, /grid-template-columns:\s*repeat\(var\(--am-grid-columns-tablet\),/);
+  assert.match(utilities, /grid-template-columns:\s*repeat\(var\(--am-grid-columns-mobile\),/);
+  assert.match(utilities, /\.am-container\s*\{[\s\S]*?calc\(100% - var\(--am-space-4\)\)/);
+  assert.match(utilities, /@media \(max-width: 47\.999rem\)[\s\S]*?var\(--am-grid-gutter\)/);
 });
 
 test("components include keyboard focus and reduced-motion support", async () => {
@@ -44,6 +52,10 @@ test("components include keyboard focus and reduced-motion support", async () =>
   ]);
 
   assert.match(components, /:focus-visible/);
+  assert.match(tokens, /--am-focus-outline-width:\s*3px;/);
+  assert.match(tokens, /--am-focus-outline-offset:\s*3px;/);
+  assert.match(foundation, /outline:\s*var\(--am-focus-outline-width\)/);
+  assert.match(components, /outline-offset:\s*var\(--am-focus-outline-offset\)/);
   assert.match(components, /\.am-button--primary::before/);
   assert.match(components, /width:\s*0;/);
   assert.match(components, /width:\s*100%;/);
@@ -54,6 +66,8 @@ test("components include keyboard focus and reduced-motion support", async () =>
   assert.match(components, /\.am-link::after\s*\{[^}]*background:\s*currentColor;/s);
   assert.match(components, /@keyframes am-link-underline[\s\S]*?38%[\s\S]*?transform:\s*scaleX\(0\)[\s\S]*?48%[\s\S]*?transform:\s*scaleX\(0\)[\s\S]*?100%[\s\S]*?transform:\s*scaleX\(1\)/);
   assert.match(components, /\.am-breadcrumb a\s*\{[^}]*text-underline-offset:\s*var\(--am-space-1\);/s);
+  assert.match(components, /\.am-menu-caret\s*\{[^}]*transition:\s*transform var\(--am-motion-duration\)/s);
+  assert.match(components, /\.am-menu\[open\] \.am-menu-caret\s*\{[^}]*rotate\(180deg\)/s);
   assert.match(tokens, /--am-gradient-cta:/);
   assert.match(foundation, /prefers-reduced-motion:\s*reduce/);
 });
@@ -73,7 +87,8 @@ test("showcase documents interactive accessible components", async () => {
     'type="range"',
     'role="switch"',
     '<dialog class="am-dialog"',
-    'class="am-pagination"'
+    'class="am-pagination"',
+    'class="am-menu-caret" aria-hidden="true">↓</span>'
   ]) {
     assert.ok(markup.includes(feature), `${feature} should appear in the showcase`);
   }
@@ -161,7 +176,9 @@ test("layout spacing, action states and icon rules are documented", async () => 
   assert.match(components, /background:\s*var\(--am-action-disabled\)/);
   assert.match(components, /\.am-alert--success\s*\{\s*border-inline-start-color:\s*var\(--am-action-positive\)/);
   assert.match(components, /\.am-alert--error\s*\{\s*border-inline-start-color:\s*var\(--am-action-alert\)/);
-  assert.match(utilities, /\.am-icon\s*\{[\s\S]*width:\s*1\.5rem;[\s\S]*height:\s*1\.5rem;/);
+  assert.match(tokens, /--am-icon-size:\s*1\.5rem;/);
+  assert.match(tokens, /--am-icon-stroke-width:\s*2;/);
+  assert.match(utilities, /\.am-icon\s*\{[\s\S]*width:\s*var\(--am-icon-size\);[\s\S]*height:\s*var\(--am-icon-size\);/);
   for (const example of [
     "--am-action-disabled",
     "Action - Positive",

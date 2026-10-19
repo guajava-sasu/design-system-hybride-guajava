@@ -96,8 +96,8 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--am-color-sky);
-  outline-offset: 3px;
+  outline: var(--am-focus-outline-width) solid var(--am-color-sky);
+  outline-offset: var(--am-focus-outline-offset);
 }
 
 ::selection {

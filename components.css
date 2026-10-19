@@ -97,8 +97,8 @@
 .am-button:focus-visible,
 .am-link:focus-visible,
 .am-input:focus-visible {
-  outline: 3px solid var(--am-color-sky);
-  outline-offset: 3px;
+  outline: var(--am-focus-outline-width) solid var(--am-color-sky);
+  outline-offset: var(--am-focus-outline-offset);
 }
 
 .am-button:disabled,
@@ -376,8 +376,8 @@
 }
 
 .am-switch input:focus-visible + .am-switch-track {
-  outline: 3px solid var(--am-color-sky);
-  outline-offset: 3px;
+  outline: var(--am-focus-outline-width) solid var(--am-color-sky);
+  outline-offset: var(--am-focus-outline-offset);
 }
 
 .am-pagination {
@@ -424,6 +424,19 @@
 
 .am-menu > summary::-webkit-details-marker {
   display: none;
+}
+
+.am-menu-caret {
+  display: inline-flex;
+  align-items: center;
+  color: var(--am-color-hot-orange);
+  font-size: 1.125em;
+  line-height: 1;
+  transition: transform var(--am-motion-duration) var(--am-motion-ease);
+}
+
+.am-menu[open] .am-menu-caret {
+  transform: rotate(180deg);
 }
 
 .am-menu-list {

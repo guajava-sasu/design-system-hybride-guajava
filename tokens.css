@@ -88,6 +88,9 @@
   --am-space-6: 3rem;
   --am-space-8: 4rem;
 
+  --am-grid-columns: 12;
+  --am-grid-columns-tablet: 6;
+  --am-grid-columns-mobile: 2;
   --am-layout-space-2xs: 1rem;
   --am-layout-space-xs: 1.5rem;
   --am-layout-space-sm: 2rem;
@@ -99,7 +102,11 @@
   --am-radius-control: 0.25rem;
   --am-radius-card: 0.5rem;
   --am-shadow-card: 0 0.25rem 1.25rem rgb(23 26 26 / 8%);
-  --am-focus-ring: 0 0 0 3px rgb(0 114 206 / 35%);
+  --am-focus-outline-width: 3px;
+  --am-focus-outline-offset: 3px;
+  --am-focus-ring: 0 0 0 var(--am-focus-outline-width) rgb(0 114 206 / 35%);
+  --am-icon-size: 1.5rem;
+  --am-icon-stroke-width: 2;
 
   --am-container-max: 71.25rem;
   --am-grid-gutter: 1.875rem;
