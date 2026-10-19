@@ -97,7 +97,7 @@ test("showcase documents interactive accessible components", async () => {
   assert.match(script, /ArrowRight/);
   assert.match(script, /data-sort/);
   assert.match(script, /data-page-step/);
-  assert.match(script, /guajava-showcase-theme/);
+  assert.match(script, /arcelor-mittal-showcase-theme/);
   assert.match(script, /aria-pressed/);
   assert.match(siteStyles, /:root\[data-theme="dark"\]/);
   assert.match(siteStyles, /--site-page:\s*#151515/);
@@ -279,7 +279,7 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.match(siteStyles, /\.color-example-code\s*\{[^}]*background:\s*var\(--site-code-surface\)/s);
   assert.match(siteStyles, /\.color-example-code pre\s*\{[^}]*font-size:\s*0\.72rem/s);
   assert.match(siteStyles, /--site-code-surface:\s*var\(--am-color-light-grey\)/);
-  assert.match(siteStyles, /--site-code-ink:\s*var\(--am-color-dark-steel-grey\)/);
+  assert.match(siteStyles, /--site-code-ink:\s*var\(--am-color-gradient-dark-pink\)/);
   assert.match(siteStyles, /\.foundation-detail-card pre\s*\{[^}]*background:\s*var\(--site-code-surface\)/s);
   assert.match(siteStyles, /\.demo-card pre,[\s\S]*?\.install-code pre\s*\{[^}]*font-size:\s*0\.72rem/s);
   assert.match(siteStyles, /\.install-code pre\s*\{[^}]*background:\s*var\(--site-code-surface\)/s);

@@ -1,4 +1,4 @@
-# Design system Guajava
+# Design system ArcelorMittal
 
 Socle CSS indépendant des frameworks pour les applications des projets ArcelorMittal. Les conventions s'inspirent de Bootstrap, Tailwind CSS, Panda CSS, shadcn/ui et Chakra UI, tout en donnant la priorité aux recommandations de marque fournies dans ce dépôt de travail.
 
@@ -7,19 +7,19 @@ Socle CSS indépendant des frameworks pour les applications des projets ArcelorM
 Après publication sur le registre privé de l'entreprise :
 
 ```sh
-npm install @guajava-sasu/design-system
+npm install @arcelor-mittal/design-system
 ```
 
 Importez la feuille de style dans votre application :
 
 ```css
-@import "@guajava-sasu/design-system";
+@import "@arcelor-mittal/design-system";
 ```
 
 Ou dans un fichier JavaScript/TypeScript pris en charge par votre outil :
 
 ```js
-import "@guajava-sasu/design-system";
+import "@arcelor-mittal/design-system";
 ```
 
 Exemple HTML sans framework :
@@ -93,7 +93,7 @@ npm test
 npm pack --dry-run
 ```
 
-Le paquet est préparé sous le nom `@guajava-sasu/design-system`. Le workflow de publication est déclenché par un push sur `main` ou manuellement : il exécute les tests, incrémente la version patch, publie sur le registre configuré, puis enregistre la nouvelle version dans le dépôt. Les registres publics `npmjs.org` et `npmjs.com` sont refusés par le workflow.
+Le paquet est préparé sous le nom `@arcelor-mittal/design-system`. Le workflow de publication est déclenché par un push sur `main` ou manuellement : il exécute les tests, incrémente la version patch, publie sur le registre configuré, puis enregistre la nouvelle version dans le dépôt. Les registres publics `npmjs.org` et `npmjs.com` sont refusés par le workflow.
 
 Avant d'activer le workflow, configurez la variable GitHub Actions `NPM_REGISTRY_URL` avec l'URL HTTPS du registre privé et le secret `NPM_TOKEN` avec un jeton limité à la publication. Vérifiez le scope du paquet dans `package.json` et la compatibilité de l'option `--access restricted` avec le registre de l'entreprise. Le workflow doit pouvoir pousser un commit de version sur `main` : adaptez les règles de protection de branche et les permissions de `GITHUB_TOKEN` en conséquence.
 

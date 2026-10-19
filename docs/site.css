@@ -5,7 +5,7 @@
   --site-page: var(--am-color-white);
   --site-surface: var(--am-color-white);
   --site-code-surface: var(--am-color-light-grey);
-  --site-code-ink: var(--am-color-dark-steel-grey);
+  --site-code-ink: var(--am-color-gradient-dark-pink);
   --site-orange: var(--am-color-hot-orange);
   --site-purple: var(--am-color-gradient-dark-pink);
 }

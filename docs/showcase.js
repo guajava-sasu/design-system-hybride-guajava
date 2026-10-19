@@ -1,7 +1,7 @@
 const themeToggle = document.querySelector("#theme-toggle");
 
 if (themeToggle) {
-  const savedTheme = localStorage.getItem("guajava-showcase-theme");
+  const savedTheme = localStorage.getItem("arcelor-mittal-showcase-theme");
   const applyTheme = (theme) => {
     const isDark = theme === "dark";
     document.documentElement.dataset.theme = isDark ? "dark" : "light";
@@ -14,7 +14,7 @@ if (themeToggle) {
   applyTheme(savedTheme === "dark" ? "dark" : "light");
   themeToggle.addEventListener("click", () => {
     const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    localStorage.setItem("guajava-showcase-theme", nextTheme);
+    localStorage.setItem("arcelor-mittal-showcase-theme", nextTheme);
     applyTheme(nextTheme);
   });
 }
