@@ -1,3 +1,24 @@
+const themeToggle = document.querySelector("#theme-toggle");
+
+if (themeToggle) {
+  const savedTheme = localStorage.getItem("guajava-showcase-theme");
+  const applyTheme = (theme) => {
+    const isDark = theme === "dark";
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute("aria-label", `Activer le mode ${isDark ? "clair" : "sombre"}`);
+    themeToggle.lastElementChild.textContent = `Mode ${isDark ? "clair" : "sombre"}`;
+  };
+
+  applyTheme(savedTheme === "dark" ? "dark" : "light");
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("guajava-showcase-theme", nextTheme);
+    applyTheme(nextTheme);
+  });
+}
+
 const tabsRoot = document.querySelector("[data-tabs]");
 
 if (tabsRoot) {

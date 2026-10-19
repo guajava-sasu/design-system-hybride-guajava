@@ -21,7 +21,12 @@
         <a href="#exemples">Exemples</a>
         <a href="#installation">Installation</a>
       </nav>
-      <a class="header-link" href="#installation">Documentation <span aria-hidden="true">↗</span></a>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activer le mode sombre">
+          <span aria-hidden="true">◐</span><span>Mode sombre</span>
+        </button>
+        <a class="header-link" href="#installation">Documentation <span aria-hidden="true">↗</span></a>
+      </div>
     </header>
 
     <main id="accueil">
@@ -363,6 +368,31 @@
 &lt;/style&gt;</code></pre>
                   <span class="code-copy-status" aria-live="polite"></span>
                 </div>
+              </article>
+              <article class="color-example">
+                <h4>Exception illustrée : beige approuvé au cas par cas</h4>
+                <div class="color-example-preview">
+                  <section class="exception-color-demo">
+                    <span class="am-kicker">EXEMPLE NON CONTRACTUEL</span>
+                    <p>Une illustration peut justifier un fond doré ou beige pour créer une ambiance cohérente.</p>
+                    <small>Le ton de cette démo n'est pas une couleur officielle à réutiliser.</small>
+                  </section>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le code</button>
+                  <pre><code>&lt;section class="story-module"&gt;
+  &lt;h2&gt;Un récit lié à l'illustration&lt;/h2&gt;
+  &lt;p&gt;Utiliser uniquement la teinte validée pour ce projet.&lt;/p&gt;
+&lt;/section&gt;
+&lt;style&gt;
+  .story-module {
+    background: var(--project-approved-story-color);
+  }
+&lt;/style&gt;
+&lt;!-- Faire approuver la valeur par l'équipe de marque avant usage. --&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+                <p class="example-note">Ce beige est un simple aperçu de la page de démonstration, pas un token de la librairie. Pour toute nouvelle couleur, contacter l'équipe de marque à Londres.</p>
               </article>
             </div>
             <p class="color-rule-note"><strong>Règle générale :</strong> titres et textes courants restent neutres. Réservez l'orange aux petits titres, tags, dates, liens, breadcrumbs et états sélectionnés ; sur fond clair, gardez le texte neutre et faites porter l'accent orange par le fond d'un tag, un soulignement ou une bordure. Évitez de multiplier orange et bleu dans une même interface. Les tokens positifs, alerte et désactivé restent réservés aux états fonctionnels. Sur orange, le noir convient au texte courant ; le blanc est à réserver aux grands libellés.</p>

@@ -88,7 +88,8 @@ test("showcase documents interactive accessible components", async () => {
     'role="switch"',
     '<dialog class="am-dialog"',
     'class="am-pagination"',
-    'class="am-menu-caret" aria-hidden="true">↓</span>'
+    'class="am-menu-caret" aria-hidden="true">↓</span>',
+    'id="theme-toggle"'
   ]) {
     assert.ok(markup.includes(feature), `${feature} should appear in the showcase`);
   }
@@ -96,6 +97,10 @@ test("showcase documents interactive accessible components", async () => {
   assert.match(script, /ArrowRight/);
   assert.match(script, /data-sort/);
   assert.match(script, /data-page-step/);
+  assert.match(script, /guajava-showcase-theme/);
+  assert.match(script, /aria-pressed/);
+  assert.match(siteStyles, /:root\[data-theme="dark"\]/);
+  assert.match(siteStyles, /--site-page:\s*#151515/);
   assert.match(siteStyles, /font-family:\s*"GilroyforArcelorMittal"/);
   assert.match(siteStyles, /font-family:\s*"GilroyforArcelorMittal-SmBd"/);
   assert.ok(markup.includes('font-family: "GilroyforArcelorMittal", sans-serif;'));
