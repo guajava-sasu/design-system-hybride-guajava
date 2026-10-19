@@ -235,7 +235,18 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.match(components, /\.am-button--icon:not\(:disabled\):hover::before/);
   assert.match(components, /\.am-breadcrumb\s*\{/);
   assert.match(components, /\.am-button--hot-orange\s*\{/);
+  assert.match(components, /\.am-button--hot-orange-white\s*\{/);
   assert.match(components, /\.am-button--sky\s*\{/);
+  assert.match(components, /\.am-brand-pair\s*\{/);
+  for (const pairing of [
+    "midnight-white", "purple-white", "dark-pink-white", "red-black",
+    "orange-gradient-black", "yellow-black", "hot-orange-black", "hot-orange-white",
+    "sky-blue-white", "white-black", "white-orange", "black-orange", "black-white",
+    "dark-steel-grey-white", "light-grey-black", "light-grey-orange",
+    "light-blue-black", "light-blue-orange"
+  ]) {
+    assert.match(components, new RegExp(`\\.am-brand-pair--${pairing}\\s*\\{`));
+  }
   assert.match(components, /\.am-badge--accent\s*\{/);
   assert.match(components, /\.am-badge--sky\s*\{/);
   assert.match(components, /\.am-table-sort\s*\{/);
@@ -243,7 +254,11 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.match(utilities, /\.am-theme--sky-blue\s*\{/);
   assert.match(utilities, /\.am-theme--dark-steel-grey\s*\{/);
 
-  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 12);
+  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 13);
+  assert.ok(markup.includes('class="am-button am-button--hot-orange-white"'));
+  assert.ok(markup.includes("Associations autorisées dans le branding"));
+  assert.ok(markup.includes("am-brand-pair--light-blue-orange"));
+  assert.ok(markup.includes("am-brand-pair--yellow-black"));
   assert.ok(markup.includes("HTML du tableau"));
   assert.ok(markup.includes("Filtre et tri (JavaScript)"));
   assert.ok(markup.includes("class=\"am-table-sort\""));
