@@ -49,8 +49,8 @@ test("components include keyboard focus and reduced-motion support", async () =>
   assert.match(components, /width:\s*100%;/);
   assert.match(components, /width 350ms ease/);
   assert.match(components, /\.am-link\s*\{[^}]*text-decoration:\s*none;/s);
-  assert.match(components, /\.am-link::after\s*\{[^}]*background-size:\s*200% 100%;[^}]*transition:\s*background-position/);
-  assert.match(components, /\.am-link:hover::after,[\s\S]*?background-position:\s*0 0/);
+  assert.match(components, /\.am-link:hover::after,[\s\S]*?animation:\s*am-link-underline 600ms/);
+  assert.match(components, /@keyframes am-link-underline[\s\S]*?38%[\s\S]*?transform:\s*scaleX\(0\)[\s\S]*?48%[\s\S]*?var\(--am-gradient-web\)[\s\S]*?100%[\s\S]*?transform:\s*scaleX\(1\)/);
   assert.match(tokens, /--am-gradient-cta:/);
   assert.match(foundation, /prefers-reduced-motion:\s*reduce/);
 });

@@ -173,21 +173,38 @@
   bottom: -0.15em;
   left: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    var(--am-color-hot-orange) 50%,
-    var(--am-color-text) 50%
-  );
-  background-position: 100% 0;
-  background-size: 200% 100%;
+  background: var(--am-color-text);
   content: "";
   pointer-events: none;
-  transition: background-position var(--am-motion-duration) var(--am-motion-ease);
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .am-link:hover::after,
 .am-link:focus-visible::after {
-  background-position: 0 0;
+  animation: am-link-underline 600ms var(--am-motion-ease) both;
+}
+
+@keyframes am-link-underline {
+  0% {
+    background: var(--am-color-text);
+    transform: scaleX(1);
+  }
+
+  38% {
+    background: var(--am-color-text);
+    transform: scaleX(0);
+  }
+
+  48% {
+    background: var(--am-gradient-web);
+    transform: scaleX(0);
+  }
+
+  100% {
+    background: var(--am-gradient-web);
+    transform: scaleX(1);
+  }
 }
 
 .am-breadcrumb {
