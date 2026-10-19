@@ -92,7 +92,7 @@ b {
 
 a {
   color: var(--am-color-accent);
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0em;
 }
 
 :focus-visible {

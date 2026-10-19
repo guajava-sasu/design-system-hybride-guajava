@@ -40,7 +40,8 @@ if (tabsRoot) {
 const table = document.querySelector("#project-table");
 const tableFilter = document.querySelector("#table-filter");
 const tableFeedback = document.querySelector("#table-feedback");
-let sortDirection = -1;
+let sortDirection = 1;
+let sortedColumn = -1;
 
 if (table && tableFilter && tableFeedback) {
   const rows = [...table.tBodies[0].rows];
@@ -63,7 +64,16 @@ if (table && tableFilter && tableFeedback) {
   table.querySelectorAll("[data-sort]").forEach((button) => {
     button.addEventListener("click", () => {
       const column = Number(button.dataset.sort);
-      sortDirection *= -1;
+      if (column === sortedColumn) {
+        sortDirection *= -1;
+      } else {
+        sortedColumn = column;
+        sortDirection = 1;
+      }
+      for (const header of table.tHead.rows[0].cells) {
+        header.removeAttribute("aria-sort");
+      }
+      button.closest("th").setAttribute("aria-sort", sortDirection === 1 ? "ascending" : "descending");
       rows.sort((rowA, rowB) => {
         const valueA = rowA.cells[column].textContent.trim();
         const valueB = rowB.cells[column].textContent.trim();

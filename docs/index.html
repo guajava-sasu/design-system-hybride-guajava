@@ -628,7 +628,7 @@
                 </div>
                 <div class="am-table-wrap">
                   <table class="am-table" id="project-table">
-                    <thead><tr><th scope="col"><button class="table-sort" type="button" data-sort="0">Projet <span aria-hidden="true">↕</span></button></th><th scope="col"><button class="table-sort" type="button" data-sort="1">Équipe <span aria-hidden="true">↕</span></button></th><th scope="col"><button class="table-sort" type="button" data-sort="2">Statut <span aria-hidden="true">↕</span></button></th><th scope="col">Avancement</th></tr></thead>
+                    <thead><tr><th scope="col" aria-sort="none"><button class="am-table-sort" type="button" data-sort="0">Projet <span aria-hidden="true">↕</span></button></th><th scope="col" aria-sort="none"><button class="am-table-sort" type="button" data-sort="1">Équipe <span aria-hidden="true">↕</span></button></th><th scope="col" aria-sort="none"><button class="am-table-sort" type="button" data-sort="2">Statut <span aria-hidden="true">↕</span></button></th><th scope="col">Avancement</th></tr></thead>
                     <tbody>
                       <tr><th scope="row">Forge Connect</th><td>Digital</td><td><span class="am-badge am-badge--success">En cours</span></td><td>72 %</td></tr>
                       <tr><th scope="row">Steel Compass</th><td>Innovation</td><td><span class="am-badge am-badge--warning">À valider</span></td><td>48 %</td></tr>
@@ -638,6 +638,83 @@
                   </table>
                 </div>
                 <p class="field-hint" id="table-feedback" aria-live="polite"></p>
+                <p class="example-note">Importez <code>@guajava-sasu/design-system</code> dans votre CSS pour appliquer les styles `.am-table`, `.am-table-wrap`, `.am-table-sort`, `.am-input` et `.am-badge`.</p>
+                <div class="table-source-grid">
+                  <section class="table-source">
+                    <h5>HTML du tableau</h5>
+                    <div class="color-example-code" data-code-example>
+                      <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                      <pre><code>&lt;label class="am-sr-only" for="table-filter"&gt;Filtrer les projets&lt;/label&gt;
+&lt;input class="am-input" id="table-filter" type="search" placeholder="Filtrer les projets"&gt;
+&lt;p id="table-feedback" class="am-sr-only" aria-live="polite"&gt;&lt;/p&gt;
+&lt;div class="am-table-wrap"&gt;
+  &lt;table class="am-table" id="project-table"&gt;
+    &lt;caption class="am-sr-only"&gt;Projets récents&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col" aria-sort="none"&gt;&lt;button class="am-table-sort" type="button" data-sort="0"&gt;Projet&lt;/button&gt;&lt;/th&gt;
+        &lt;th scope="col" aria-sort="none"&gt;&lt;button class="am-table-sort" type="button" data-sort="1"&gt;Équipe&lt;/button&gt;&lt;/th&gt;
+        &lt;th scope="col" aria-sort="none"&gt;&lt;button class="am-table-sort" type="button" data-sort="2"&gt;Statut&lt;/button&gt;&lt;/th&gt;
+        &lt;th scope="col"&gt;Avancement&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Forge Connect&lt;/th&gt;&lt;td&gt;Digital&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge am-badge--success"&gt;En cours&lt;/span&gt;&lt;/td&gt;&lt;td&gt;72 %&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Steel Compass&lt;/th&gt;&lt;td&gt;Innovation&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge am-badge--warning"&gt;À valider&lt;/span&gt;&lt;/td&gt;&lt;td&gt;48 %&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Green Horizon&lt;/th&gt;&lt;td&gt;R&amp;amp;D&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge am-badge--success"&gt;En cours&lt;/span&gt;&lt;/td&gt;&lt;td&gt;91 %&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;People Portal&lt;/th&gt;&lt;td&gt;RH&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge"&gt;Planifié&lt;/span&gt;&lt;/td&gt;&lt;td&gt;16 %&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+                      <span class="code-copy-status" aria-live="polite"></span>
+                    </div>
+                  </section>
+                  <section class="table-source">
+                    <h5>Filtre et tri (JavaScript)</h5>
+                    <div class="color-example-code" data-code-example>
+                      <button class="code-copy-button" type="button" data-copy-code>Copier le JavaScript</button>
+                      <pre><code>const table = document.querySelector("#project-table");
+const filter = document.querySelector("#table-filter");
+const feedback = document.querySelector("#table-feedback");
+const rows = [...table.tBodies[0].rows];
+let sortDirection = 1;
+let sortedColumn = -1;
+
+filter.addEventListener("input", () =&gt; {
+  const query = filter.value.trim().toLocaleLowerCase();
+  let count = 0;
+  for (const row of rows) {
+    row.hidden = !row.textContent.toLocaleLowerCase().includes(query);
+    if (!row.hidden) count += 1;
+  }
+  feedback.textContent = query ? `${count} projet(s) affiché(s).` : "";
+});
+
+table.querySelectorAll("[data-sort]").forEach((button) =&gt; {
+  button.addEventListener("click", () =&gt; {
+    const column = Number(button.dataset.sort);
+    if (column === sortedColumn) {
+      sortDirection *= -1;
+    } else {
+      sortedColumn = column;
+      sortDirection = 1;
+    }
+    for (const header of table.tHead.rows[0].cells) {
+      header.removeAttribute("aria-sort");
+    }
+    button.closest("th").setAttribute("aria-sort", sortDirection === 1 ? "ascending" : "descending");
+    rows.sort((a, b) =&gt;
+      a.cells[column].textContent.trim().localeCompare(
+        b.cells[column].textContent.trim(), "fr", { numeric: true }
+      ) * sortDirection
+    );
+    table.tBodies[0].append(...rows);
+  });
+});</code></pre>
+                      <span class="code-copy-status" aria-live="polite"></span>
+                    </div>
+                  </section>
+                </div>
               </div>
               <div class="showcase-example am-flow">
                 <h4>Alertes et statuts</h4>

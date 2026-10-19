@@ -81,7 +81,7 @@ Les styles `h1` à `h5` et les classes `.am-h1` à `.am-h5` partagent les taille
 
 Les tokens `--am-action-disabled`, `--am-action-positive` et `--am-action-alert` sont réservés aux notifications fonctionnelles : état indisponible d'un CTA, succès et alerte. Les alertes gardent un fond et un texte neutres, et ces couleurs ne servent ni aux titres, ni au corps de texte, ni aux liens, listes, tableaux ou fonds de modules.
 
-Les boutons CTA et les boutons icônes révèlent le dégradé web au survol/focus avec un voile sombre de 40 % pour préserver le contraste du premier plan blanc. `am-theme--*` associe un fond de module à une couleur de texte recommandée ; `.am-kicker`, `.am-badge--accent`, `.am-badge--sky` et `.am-breadcrumb` couvrent les usages d'accent autorisés.
+Les boutons CTA et les boutons icônes révèlent le dégradé web au survol/focus avec un voile sombre de 40 % pour préserver le contraste du premier plan blanc. `am-theme--*` associe un fond de module à une couleur de texte recommandée ; `.am-kicker`, `.am-badge--accent`, `.am-badge--sky` et `.am-breadcrumb` couvrent les usages d'accent autorisés. `.am-table`, `.am-table-wrap` et `.am-table-sort` composent une table responsive, avec exemple HTML et JavaScript copiable dans la galerie.
 
 ## Développement
 

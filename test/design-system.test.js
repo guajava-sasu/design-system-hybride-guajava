@@ -48,6 +48,9 @@ test("components include keyboard focus and reduced-motion support", async () =>
   assert.match(components, /width:\s*0;/);
   assert.match(components, /width:\s*100%;/);
   assert.match(components, /width 350ms ease/);
+  assert.match(components, /\.am-link\s*\{[^}]*text-decoration:\s*none;/s);
+  assert.match(components, /\.am-link::after\s*\{[^}]*background-size:\s*200% 100%;[^}]*transition:\s*background-position/);
+  assert.match(components, /\.am-link:hover::after,[\s\S]*?background-position:\s*0 0/);
   assert.match(tokens, /--am-gradient-cta:/);
   assert.match(foundation, /prefers-reduced-motion:\s*reduce/);
 });
@@ -215,11 +218,16 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.match(components, /\.am-button--sky\s*\{/);
   assert.match(components, /\.am-badge--accent\s*\{/);
   assert.match(components, /\.am-badge--sky\s*\{/);
+  assert.match(components, /\.am-table-sort\s*\{/);
   assert.match(utilities, /\.am-kicker\s*\{/);
   assert.match(utilities, /\.am-theme--sky-blue\s*\{/);
   assert.match(utilities, /\.am-theme--dark-steel-grey\s*\{/);
 
-  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 10);
+  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 12);
+  assert.ok(markup.includes("HTML du tableau"));
+  assert.ok(markup.includes("Filtre et tri (JavaScript)"));
+  assert.ok(markup.includes("class=\"am-table-sort\""));
+  assert.match(script, /aria-sort/);
   assert.ok(markup.includes("./assets/branding/primary-colour-palette.png"));
   assert.ok(markup.includes("./assets/branding/primary-colour-pairs.png"));
   assert.deepEqual([paletteImage.readUInt32BE(16), paletteImage.readUInt32BE(20)], [800, 447]);

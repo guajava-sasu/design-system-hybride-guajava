@@ -163,7 +163,7 @@
   position: relative;
   color: var(--am-color-text);
   font-weight: 400;
-  text-decoration-color: var(--am-color-hot-orange);
+  text-decoration: none;
   text-underline-offset: 0.2em;
 }
 
@@ -173,16 +173,21 @@
   bottom: -0.15em;
   left: 0;
   height: 1px;
-  background: var(--am-color-hot-orange);
+  background: linear-gradient(
+    90deg,
+    var(--am-color-hot-orange) 50%,
+    var(--am-color-text) 50%
+  );
+  background-position: 100% 0;
+  background-size: 200% 100%;
   content: "";
-  transform: scaleX(0.35);
-  transform-origin: left;
-  transition: transform var(--am-motion-duration) var(--am-motion-ease);
+  pointer-events: none;
+  transition: background-position var(--am-motion-duration) var(--am-motion-ease);
 }
 
 .am-link:hover::after,
 .am-link:focus-visible::after {
-  transform: scaleX(1);
+  background-position: 0 0;
 }
 
 .am-breadcrumb {
@@ -546,6 +551,26 @@
   font-size: var(--am-font-size-sm);
   font-family: var(--am-font-family-heading);
   font-weight: 400;
+}
+
+.am-table-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.am-table-sort:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--am-color-hot-orange);
+  text-underline-offset: 0.2em;
 }
 
 .am-table tbody tr:last-child > * {
