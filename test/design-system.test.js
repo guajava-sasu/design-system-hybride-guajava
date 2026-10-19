@@ -254,7 +254,7 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.match(utilities, /\.am-theme--sky-blue\s*\{/);
   assert.match(utilities, /\.am-theme--dark-steel-grey\s*\{/);
 
-  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 13);
+  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 23);
   assert.ok(markup.includes('class="am-button am-button--hot-orange-white"'));
   assert.ok(markup.includes("Associations autorisées dans le branding"));
   assert.ok(markup.includes("am-brand-pair--light-blue-orange"));
@@ -270,4 +270,50 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.ok(markup.includes("contacter l'équipe de marque à Londres"));
   assert.match(script, /navigator\.clipboard\.writeText/);
   assert.match(script, /Code copié\./);
+});
+
+test("the ten new component families expose responsive styles and accessible demos", async () => {
+  const [components, utilities, markup, siteStyles, script, readme] = await Promise.all([
+    readCss("components.css"),
+    readCss("utilities.css"),
+    readFile(new URL("../docs/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../docs/site.css", import.meta.url), "utf8"),
+    readFile(new URL("../docs/showcase.js", import.meta.url), "utf8"),
+    readFile(new URL("../README.md", import.meta.url), "utf8")
+  ]);
+
+  for (const selector of [
+    ".am-tooltip-content", ".am-popover-panel", ".am-drawer", ".am-navbar", ".am-sidebar",
+    ".am-combobox", ".am-date-picker", ".am-carousel", ".am-spinner", ".am-skeleton",
+    ".am-avatar-group", ".am-menubar", ".am-context-menu-popup"
+  ]) {
+    assert.ok(components.includes(selector), `${selector} should have package styles`);
+    assert.ok(markup.includes(selector.slice(1)), `${selector} should have a visible showcase demo`);
+  }
+  for (const family of [
+    "Infobulle · Tooltip", "Popover · Carte contextuelle", "Panneau · Drawer / Sheet",
+    "Navigation · Navbar &amp; sidebar", "Combobox · Autocomplete", "Calendrier · Date picker",
+    "Carrousel · Carousel", "Chargement · Spinner &amp; skeleton", "Identités · Avatar group",
+    "Menus · Menubar &amp; context menu"
+  ]) {
+    assert.ok(markup.includes(family), `${family} should be clearly labeled`);
+  }
+  assert.match(utilities, /\.am-inline-flex\s*\{/);
+  assert.match(utilities, /\.am-flex-wrap\s*\{/);
+  assert.match(components, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.am-spinner,[\s\S]*?\.am-skeleton/);
+  assert.match(markup, /role="combobox"[\s\S]*?aria-controls="team-options"/);
+  assert.match(markup, /role="listbox"[\s\S]*?role="option"/);
+  assert.match(markup, /aria-haspopup="menu"[\s\S]*?role="menu"/);
+  assert.match(markup, /<dialog class="am-drawer"/);
+  assert.match(markup, /type="date" value="2026-10-19" data-calendar/);
+  assert.match(script, /ArrowDown/);
+  assert.match(script, /aria-activedescendant/);
+  assert.match(script, /removeEventListener\("pointerdown"/);
+  assert.match(script, /removeEventListener\("keydown"/);
+  assert.match(script, /Escape/);
+  assert.match(script, /élément obligatoire introuvable/);
+  assert.match(script, /Aucun résultat/);
+  assert.match(siteStyles, /component-family-grid/);
+  assert.match(readme, /docs\/showcase\.js/);
+  assert.match(readme, /sans JavaScript ni framework/);
 });

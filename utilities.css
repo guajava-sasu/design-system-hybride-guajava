@@ -43,6 +43,19 @@
   display: flex;
 }
 
+.am-inline-flex {
+  display: inline-flex;
+}
+
+.am-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.am-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
 .am-items-center {
   align-items: center;
 }

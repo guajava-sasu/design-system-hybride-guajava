@@ -1218,3 +1218,103 @@ body {
   .demo-card .am-cluster { align-items: stretch; flex-direction: column; }
   .demo-card .am-button { width: 100%; }
 }
+
+.component-family-grid {
+  align-items: start;
+}
+
+.component-family-demo {
+  min-width: 0;
+  padding-block-start: 1.25rem;
+  border-top: 1px solid var(--am-color-border);
+}
+
+.component-family-demo h4 {
+  font-size: 1.1rem;
+}
+
+.component-family-demo .example-note {
+  min-height: 2.5em;
+}
+
+.component-family-demo .color-example-code {
+  min-width: 0;
+}
+
+.component-family-demo .color-example-code pre {
+  max-height: 12rem;
+}
+
+.component-family-demo .am-navbar {
+  align-items: flex-start;
+}
+
+.component-family-demo .am-navbar-links {
+  align-items: flex-start;
+}
+
+.component-family-demo .am-navbar-links .am-nav-link {
+  min-height: 2.5rem;
+  padding-inline: 0.5rem;
+}
+
+.am-sidebar-toggle {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.component-family-demo[data-sidebar-demo] {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.loader-demo {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--am-color-text);
+  font-size: 0.875rem;
+}
+
+.am-skeleton-preview {
+  display: grid;
+  gap: 0.625rem;
+  padding: 1rem;
+  border: 1px solid var(--am-color-border);
+  border-radius: var(--am-radius-control);
+}
+
+.am-date-picker:focus-visible,
+.am-combobox .am-input:focus-visible,
+.am-context-menu [aria-haspopup="menu"]:focus-visible,
+.am-carousel button:focus-visible,
+.am-navbar button:focus-visible,
+.am-menubar .am-nav-link:focus-visible,
+.am-popover-trigger:focus-visible,
+.am-tooltip-trigger:focus-visible {
+  outline: var(--am-focus-outline-width) solid var(--am-color-sky);
+  outline-offset: var(--am-focus-outline-offset);
+}
+
+@media (max-width: 48rem) {
+  .am-menubar {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .component-family-demo .am-navbar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 34rem) {
+  .component-family-demo .am-navbar-links {
+    flex-direction: column;
+  }
+
+  .component-family-demo .am-navbar-links[hidden] {
+    display: none;
+  }
+}

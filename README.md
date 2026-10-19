@@ -49,10 +49,11 @@ Puis ouvrez [http://127.0.0.1:4321](http://127.0.0.1:4321). Définissez `PORT` p
 - Des variables CSS pour les couleurs, la typographie, les espacements, les rayons et les ombres.
 - Des styles de base, une grille responsive et quelques utilitaires.
 - Des boutons, liens, champs, badges, alertes et cartes.
+- Des infobulles, popovers, panneaux latéraux, navigations, comboboxes, calendriers, carrousels, états de chargement, groupes d'avatars et menus.
 - Les états de focus clavier, des états de formulaire accessibles et le respect de `prefers-reduced-motion`.
 - Une documentation avec exemples HTML prêts à adapter.
 
-Les classes sont préfixées par `am-` pour limiter les collisions avec les styles d'une application existante. Les composants restent de simples éléments HTML : aucun framework JavaScript n'est requis.
+Les classes sont préfixées par `am-` pour limiter les collisions avec les styles d'une application existante. Les composants restent de simples éléments HTML : les styles du paquet fonctionnent sans JavaScript ni framework. Les interactions présentées dans `docs/showcase.js` servent uniquement aux démonstrations de la vitrine ; adaptez-les à l'application qui intègre les composants.
 
 ## Personnalisation
 
@@ -80,6 +81,8 @@ Ces familles sont configurées dans `--am-font-family` et `--am-font-family-head
 Les styles `h1` à `h5` et les classes `.am-h1` à `.am-h5` partagent les tailles et interlignes de la charte. `.am-body-1`, `.am-body-1--semibold`, `.am-body-2` et `.am-label` exposent les styles de texte. Les espacements de mise en page Frontify sont disponibles en tokens (`--am-layout-space-*`), en classes `am-layout-gap-*` et `am-layout-padding-*`. La grille utilise les tokens `--am-grid-columns`, `--am-grid-columns-tablet` et `--am-grid-columns-mobile`. `--am-focus-outline-width` et `--am-focus-outline-offset` règlent l'indicateur de focus ; `--am-icon-size` et `--am-icon-stroke-width` règlent les icônes. La galerie locale montre aussi la grille d'icônes 24 × 24 px et un exemple de loupe.
 
 Les tokens `--am-action-disabled`, `--am-action-positive` et `--am-action-alert` sont réservés aux notifications fonctionnelles : état indisponible d'un CTA, succès et alerte. Les alertes gardent un fond et un texte neutres, et ces couleurs ne servent ni aux titres, ni au corps de texte, ni aux liens, listes, tableaux ou fonds de modules.
+
+Les nouvelles familles utilisent notamment `.am-tooltip` / `.am-tooltip-content`, `.am-popover` / `.am-popover-panel`, `.am-drawer`, `.am-navbar`, `.am-sidebar` / `.am-nav-link`, `.am-combobox` / `.am-combobox-list`, `.am-date-picker`, `.am-carousel`, `.am-spinner` / `.am-skeleton`, `.am-avatar` / `.am-avatar-group` et `.am-menubar` / `.am-context-menu`. Elles s'appuient sur les éléments natifs (par exemple `<details>`, `<dialog>` et `<input type="date">`) et les états ARIA documentés dans la vitrine.
 
 Les boutons CTA et les boutons icônes révèlent le dégradé web au survol/focus avec un voile sombre de 40 % pour préserver le contraste du premier plan blanc. `am-theme--*` associe un fond de module à une couleur de texte recommandée ; `.am-button--hot-orange-white` propose le premier plan blanc autorisé sur orange. `.am-brand-pair` et ses variantes illustrent les paires de couleurs approuvées dans le guide. `.am-kicker`, `.am-badge--accent`, `.am-badge--sky` et `.am-breadcrumb` couvrent les usages d'accent autorisés. `.am-table`, `.am-table-wrap` et `.am-table-sort` composent une table responsive, avec exemple HTML et JavaScript copiable dans la galerie.
 
