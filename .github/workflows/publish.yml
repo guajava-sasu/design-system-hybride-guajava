@@ -1,0 +1,78 @@
+name: Publish private npm package
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: private-npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check private registry configuration
+        env:
+          NPM_REGISTRY_URL: ${{ vars.NPM_REGISTRY_URL }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NPM_REGISTRY_URL" ]; then
+            echo "::error::Configure the NPM_REGISTRY_URL repository or organization variable."
+            exit 1
+          fi
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "::error::Configure the NPM_TOKEN secret with publish-only access."
+            exit 1
+          fi
+          case "$NPM_REGISTRY_URL" in
+            https://*)
+              registry_host="$(node -e 'console.log(new URL(process.argv[1]).hostname.toLowerCase())' "$NPM_REGISTRY_URL")"
+              case "$registry_host" in
+                registry.npmjs.org|*.npmjs.org|npmjs.com|*.npmjs.com)
+                  echo "::error::Publishing to the public npm registry is disabled."
+                  exit 1
+                  ;;
+              esac
+              ;;
+            *) echo "::error::NPM_REGISTRY_URL must use HTTPS."; exit 1 ;;
+          esac
+
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: ${{ vars.NPM_REGISTRY_URL }}
+          scope: "@guajava-sasu"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Bump patch version
+        run: npm version patch --no-git-tag-version
+
+      - name: Publish to the private registry
+        run: npm publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Save published version
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "chore(release): v$(node -p 'require("./package.json").version') [skip ci]"
+          git push origin HEAD:main

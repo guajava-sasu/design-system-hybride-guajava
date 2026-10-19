@@ -1,0 +1,64 @@
+:root {
+  color-scheme: light;
+
+  --am-color-white: #ffffff;
+  --am-color-black: #171a1a;
+  --am-color-text: #2d3232;
+  --am-color-text-muted: #596363;
+  --am-color-border: #d6dddd;
+  --am-color-surface: #f5f7f7;
+  --am-color-surface-raised: #ffffff;
+
+  /* Provisional web accents: validate against the full brand color specification. */
+  --am-color-accent: #c44508;
+  --am-color-sky: #007eae;
+  --am-color-gradient-red: #c21e31;
+  --am-color-gradient-purple: #84236c;
+  --am-color-cta-border: #ff3700;
+  --am-color-cta-text: var(--am-color-text);
+  --am-color-cta-text-active: var(--am-color-white);
+  --am-gradient-cta: linear-gradient(
+    90deg,
+    #260c67,
+    #932184,
+    #e54749,
+    #f09357
+  );
+  --am-gradient-brand: linear-gradient(
+    105deg,
+    var(--am-color-accent) 0%,
+    var(--am-color-gradient-red) 52%,
+    var(--am-color-gradient-purple) 100%
+  );
+
+  --am-color-action-disabled: #ffd7cc;
+  --am-color-action-positive: #70a489;
+  --am-color-action-alert: #cc2c00;
+
+  --am-font-family: "Gilroy for ArcelorMittal", "Gilroy", Arial, sans-serif;
+  --am-font-size-xs: 0.75rem;
+  --am-font-size-sm: 0.875rem;
+  --am-font-size-md: 1rem;
+  --am-font-size-lg: 1.125rem;
+  --am-font-size-xl: 1.25rem;
+  --am-line-height-body: 1.6;
+  --am-line-height-heading: 1.15;
+
+  --am-space-1: 0.5rem;
+  --am-space-2: 1rem;
+  --am-space-3: 1.5rem;
+  --am-space-4: 2rem;
+  --am-space-5: 2.5rem;
+  --am-space-6: 3rem;
+  --am-space-8: 4rem;
+
+  --am-radius-control: 0.25rem;
+  --am-radius-card: 0.5rem;
+  --am-shadow-card: 0 0.25rem 1.25rem rgb(23 26 26 / 8%);
+  --am-focus-ring: 0 0 0 3px rgb(0 126 174 / 35%);
+
+  --am-container-max: 71.25rem;
+  --am-grid-gutter: 1.875rem;
+  --am-motion-duration: 180ms;
+  --am-motion-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
