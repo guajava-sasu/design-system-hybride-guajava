@@ -4,10 +4,10 @@
   --site-paper: var(--am-color-light-blue);
   --site-page: var(--am-color-white);
   --site-surface: var(--am-color-white);
+  --site-code-surface: var(--am-color-light-grey);
+  --site-code-ink: var(--am-color-dark-steel-grey);
   --site-orange: var(--am-color-hot-orange);
   --site-purple: var(--am-color-gradient-dark-pink);
-  /* Documentation-only approximation, not a brand color token. */
-  --site-demo-exception-beige: #f3e7d3;
 }
 
 @font-face {
@@ -633,42 +633,44 @@ body {
   min-width: 0;
   margin-top: auto;
   padding: var(--am-space-2);
-  background: var(--am-color-black);
+  background: var(--site-code-surface);
 }
 
 .color-example-code pre {
   max-height: 18rem;
   margin: 0;
   overflow: auto;
-  color: var(--am-color-white);
+  color: var(--site-code-ink);
   background: transparent;
+  font-size: 0.72rem;
+  line-height: 1.5;
 }
 
 .color-example-code pre code {
-  color: var(--am-color-white);
+  color: var(--site-code-ink);
 }
 
 .code-copy-button {
   display: block;
   margin: 0 0 0.5rem auto;
   padding: 0.375rem 0.625rem;
-  border: 1px solid var(--am-color-dark-steel-grey);
+  border: 1px solid var(--site-code-ink);
   border-radius: var(--am-radius-control);
-  color: var(--am-color-white);
+  color: var(--site-code-ink);
   background: transparent;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   cursor: pointer;
 }
 
 .code-copy-button:hover {
-  border-color: var(--am-color-white);
-  background: rgb(255 255 255 / 10%);
+  border-color: var(--am-color-black);
+  background: rgb(21 21 21 / 8%);
 }
 
 .code-copy-status {
   display: block;
   min-height: 1rem;
-  color: var(--am-color-light-grey);
+  color: var(--site-code-ink);
   font-size: 0.7rem;
 }
 
@@ -712,19 +714,6 @@ body {
   background: var(--am-gradient-web);
 }
 
-.exception-color-demo {
-  display: grid;
-  gap: var(--am-space-1);
-  padding: var(--am-space-3);
-  color: var(--am-color-dark-steel-grey);
-  background: var(--site-demo-exception-beige);
-}
-
-.exception-color-demo .am-kicker {
-  color: var(--am-color-black);
-}
-
-.exception-color-demo small,
 .color-rule-note {
   color: var(--site-muted);
 }
@@ -785,14 +774,15 @@ body {
   margin: var(--am-space-2) 0 0;
   padding: var(--am-space-2);
   border-radius: 0.25rem;
-  background: var(--am-color-surface);
+  color: var(--site-code-ink);
+  background: var(--site-code-surface);
   white-space: pre-wrap;
 }
 
 .foundation-detail-card pre code {
-  color: var(--site-purple);
+  color: var(--site-code-ink);
   font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   line-height: 1.6;
 }
 
@@ -1140,7 +1130,10 @@ body {
   margin: 0;
   padding: var(--am-space-1) var(--am-space-2);
   border-radius: 0.25rem;
-  background: var(--am-color-light-blue);
+  color: var(--site-code-ink);
+  background: var(--site-code-surface);
+  font-size: 0.72rem;
+  line-height: 1.5;
   white-space: pre-wrap;
 }
 
@@ -1187,8 +1180,8 @@ body {
 }
 
 .install-code pre {
-  color: var(--am-color-white);
-  background: var(--am-color-black);
+  color: var(--site-code-ink);
+  background: var(--site-code-surface);
 }
 
 .install-code pre + span { margin-top: var(--am-space-1); }

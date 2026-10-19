@@ -202,12 +202,13 @@ test("layout spacing, action states and icon rules are documented", async () => 
 });
 
 test("official web palette, color pairings and copyable examples are documented", async () => {
-  const [tokens, utilities, components, markup, script, paletteImage, pairingsImage] = await Promise.all([
+  const [tokens, utilities, components, markup, script, siteStyles, paletteImage, pairingsImage] = await Promise.all([
     readCss("tokens.css"),
     readCss("utilities.css"),
     readCss("components.css"),
     readFile(new URL("../docs/index.html", import.meta.url), "utf8"),
     readFile(new URL("../docs/showcase.js", import.meta.url), "utf8"),
+    readFile(new URL("../docs/site.css", import.meta.url), "utf8"),
     readFile(new URL("../docs/assets/branding/primary-colour-palette.png", import.meta.url)),
     readFile(new URL("../docs/assets/branding/primary-colour-pairs.png", import.meta.url))
   ]);
@@ -259,7 +260,7 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.match(utilities, /\.am-theme--sky-blue\s*\{/);
   assert.match(utilities, /\.am-theme--dark-steel-grey\s*\{/);
 
-  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 23);
+  assert.equal((markup.match(/data-copy-code/g) ?? []).length, 22);
   assert.ok(markup.includes('class="am-button am-button--hot-orange-white"'));
   assert.ok(markup.includes("Associations autorisées dans le branding"));
   assert.ok(markup.includes("am-brand-pair--light-blue-orange"));
@@ -272,7 +273,16 @@ test("official web palette, color pairings and copyable examples are documented"
   assert.ok(markup.includes("./assets/branding/primary-colour-pairs.png"));
   assert.deepEqual([paletteImage.readUInt32BE(16), paletteImage.readUInt32BE(20)], [800, 447]);
   assert.deepEqual([pairingsImage.readUInt32BE(16), pairingsImage.readUInt32BE(20)], [800, 750]);
-  assert.ok(markup.includes("contacter l'équipe de marque à Londres"));
+  assert.ok(!markup.includes("Exception illustrée"));
+  assert.ok(!markup.includes("story-module"));
+  assert.ok(!markup.includes("contacter l'équipe de marque à Londres"));
+  assert.match(siteStyles, /\.color-example-code\s*\{[^}]*background:\s*var\(--site-code-surface\)/s);
+  assert.match(siteStyles, /\.color-example-code pre\s*\{[^}]*font-size:\s*0\.72rem/s);
+  assert.match(siteStyles, /--site-code-surface:\s*var\(--am-color-light-grey\)/);
+  assert.match(siteStyles, /--site-code-ink:\s*var\(--am-color-dark-steel-grey\)/);
+  assert.match(siteStyles, /\.foundation-detail-card pre\s*\{[^}]*background:\s*var\(--site-code-surface\)/s);
+  assert.match(siteStyles, /\.demo-card pre,[\s\S]*?\.install-code pre\s*\{[^}]*font-size:\s*0\.72rem/s);
+  assert.match(siteStyles, /\.install-code pre\s*\{[^}]*background:\s*var\(--site-code-surface\)/s);
   assert.match(script, /navigator\.clipboard\.writeText/);
   assert.match(script, /Code copié\./);
 });
