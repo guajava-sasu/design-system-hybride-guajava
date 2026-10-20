@@ -1,0 +1,144 @@
+<section class="section am-container doc-page">
+  <div class="section-heading">
+    <div><span class="eyebrow">COMPOSANTS</span><h2>Données &amp; feedback</h2></div>
+    <p>Présenter, filtrer, informer : tableau, progression, pagination et notifications.</p>
+  </div>
+          <div class="showcase-block am-card">
+            <div class="showcase-grid showcase-grid--two">
+              <div class="showcase-example am-flow showcase-example--wide">
+                <div class="table-toolbar">
+                  <h4>Projets récents</h4>
+                  <label class="table-search"><span class="am-sr-only">Filtrer les projets</span><input class="am-input" id="table-filter" type="search" placeholder="Filtrer les projets…"></label>
+                </div>
+                <div class="am-table-wrap">
+                  <table class="am-table" id="project-table">
+                    <thead><tr><th scope="col" aria-sort="none"><button class="am-table-sort" type="button" data-sort="0">Projet <span aria-hidden="true">↕</span></button></th><th scope="col" aria-sort="none"><button class="am-table-sort" type="button" data-sort="1">Équipe <span aria-hidden="true">↕</span></button></th><th scope="col" aria-sort="none"><button class="am-table-sort" type="button" data-sort="2">Statut <span aria-hidden="true">↕</span></button></th><th scope="col">Avancement</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Forge Connect</th><td>Digital</td><td><span class="am-badge am-badge--success">En cours</span></td><td>72 %</td></tr>
+                      <tr><th scope="row">Steel Compass</th><td>Innovation</td><td><span class="am-badge am-badge--warning">À valider</span></td><td>48 %</td></tr>
+                      <tr><th scope="row">Green Horizon</th><td>R&amp;D</td><td><span class="am-badge am-badge--success">En cours</span></td><td>91 %</td></tr>
+                      <tr><th scope="row">People Portal</th><td>RH</td><td><span class="am-badge">Planifié</span></td><td>16 %</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="field-hint" id="table-feedback" aria-live="polite"></p>
+                <p class="example-note">Importez <code>&#64;arcelor-mittal/design-system</code> dans votre CSS pour appliquer les styles `.am-table`, `.am-table-wrap`, `.am-table-sort`, `.am-input` et `.am-badge`.</p>
+                <div class="table-source-grid">
+                  <section class="table-source">
+                    <h5>HTML du tableau</h5>
+                    <div class="color-example-code" data-code-example>
+                      <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                      <pre><code>&lt;label class="am-sr-only" for="table-filter"&gt;Filtrer les projets&lt;/label&gt;
+&lt;input class="am-input" id="table-filter" type="search" placeholder="Filtrer les projets"&gt;
+&lt;p id="table-feedback" class="am-sr-only" aria-live="polite"&gt;&lt;/p&gt;
+&lt;div class="am-table-wrap"&gt;
+  &lt;table class="am-table" id="project-table"&gt;
+    &lt;caption class="am-sr-only"&gt;Projets récents&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col" aria-sort="none"&gt;&lt;button class="am-table-sort" type="button" data-sort="0"&gt;Projet&lt;/button&gt;&lt;/th&gt;
+        &lt;th scope="col" aria-sort="none"&gt;&lt;button class="am-table-sort" type="button" data-sort="1"&gt;Équipe&lt;/button&gt;&lt;/th&gt;
+        &lt;th scope="col" aria-sort="none"&gt;&lt;button class="am-table-sort" type="button" data-sort="2"&gt;Statut&lt;/button&gt;&lt;/th&gt;
+        &lt;th scope="col"&gt;Avancement&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Forge Connect&lt;/th&gt;&lt;td&gt;Digital&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge am-badge--success"&gt;En cours&lt;/span&gt;&lt;/td&gt;&lt;td&gt;72 %&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Steel Compass&lt;/th&gt;&lt;td&gt;Innovation&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge am-badge--warning"&gt;À valider&lt;/span&gt;&lt;/td&gt;&lt;td&gt;48 %&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Green Horizon&lt;/th&gt;&lt;td&gt;R&amp;amp;D&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge am-badge--success"&gt;En cours&lt;/span&gt;&lt;/td&gt;&lt;td&gt;91 %&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;People Portal&lt;/th&gt;&lt;td&gt;RH&lt;/td&gt;&lt;td&gt;&lt;span class="am-badge"&gt;Planifié&lt;/span&gt;&lt;/td&gt;&lt;td&gt;16 %&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+                      <span class="code-copy-status" aria-live="polite"></span>
+                    </div>
+                  </section>
+                  <section class="table-source">
+                    <h5>Filtre et tri (JavaScript)</h5>
+                    <div class="color-example-code" data-code-example>
+                      <button class="code-copy-button" type="button" data-copy-code>Copier le JavaScript</button>
+                      <pre><code>const table = document.querySelector("#project-table");
+const filter = document.querySelector("#table-filter");
+const feedback = document.querySelector("#table-feedback");
+const rows = [...table.tBodies[0].rows];
+let sortDirection = 1;
+let sortedColumn = -1;
+
+filter.addEventListener("input", () =&gt; &#123;
+  const query = filter.value.trim().toLocaleLowerCase();
+  let count = 0;
+  for (const row of rows) &#123;
+    row.hidden = !row.textContent.toLocaleLowerCase().includes(query);
+    if (!row.hidden) count += 1;
+  &#125;
+  feedback.textContent = query ? `$&#123;count&#125; projet(s) affiché(s).` : "";
+&#125;);
+
+table.querySelectorAll("[data-sort]").forEach((button) =&gt; &#123;
+  button.addEventListener("click", () =&gt; &#123;
+    const column = Number(button.dataset.sort);
+    if (column === sortedColumn) &#123;
+      sortDirection *= -1;
+    &#125; else &#123;
+      sortedColumn = column;
+      sortDirection = 1;
+    &#125;
+    for (const header of table.tHead.rows[0].cells) &#123;
+      header.removeAttribute("aria-sort");
+    &#125;
+    button.closest("th").setAttribute("aria-sort", sortDirection === 1 ? "ascending" : "descending");
+    rows.sort((a, b) =&gt;
+      a.cells[column].textContent.trim().localeCompare(
+        b.cells[column].textContent.trim(), "fr", &#123; numeric: true &#125;
+      ) * sortDirection
+    );
+    table.tBodies[0].append(...rows);
+  &#125;);
+&#125;);</code></pre>
+                      <span class="code-copy-status" aria-live="polite"></span>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="showcase-example am-flow">
+                <h4>Alertes et statuts</h4>
+                <div class="am-alert am-alert--success" role="status"><strong>Tout est à jour.</strong><br>Les modifications ont été enregistrées.</div>
+                <div class="am-alert am-alert--error" role="alert"><strong>Une action est requise.</strong><br>Vérifiez les informations avant de continuer.</div>
+                <div class="am-cluster"><span class="am-badge">Brouillon</span><span class="am-badge am-badge--success">Validé</span><span class="am-badge am-badge--warning">En attente</span></div>
+              </div>
+              <div class="showcase-example am-flow">
+                <h4>Progression</h4>
+                <label class="progress-label" for="project-progress"><span>Déploiement du projet</span><output id="progress-value" for="project-progress">68 %</output></label>
+                <progress class="am-progress" id="project-progress" value="68" max="100">68 %</progress>
+                <label class="progress-label" for="volume-range"><span>Volume de production</span><output id="volume-value" for="volume-range">64</output></label>
+                <input class="am-range" id="volume-range" type="range" min="0" max="100" value="64">
+                <div class="range-labels"><span>0</span><span>100</span></div>
+              </div>
+              <div class="showcase-example am-flow">
+                <h4>Accordéon</h4>
+                <details class="am-accordion" open>
+                  <summary>Pourquoi un design system ?</summary>
+                  <p>Pour partager des règles fiables, améliorer l'accessibilité et éviter de recréer les mêmes composants à chaque projet.</p>
+                </details>
+                <details class="am-accordion">
+                  <summary>Est-il lié à un framework ?</summary>
+                  <p>Non. Le socle est construit en CSS natif et peut être utilisé avec React, Vue, Angular ou du HTML simple.</p>
+                </details>
+              </div>
+              <div class="showcase-example am-flow showcase-example--wide">
+                <div class="table-toolbar">
+                  <h4>Pagination</h4>
+                  <span class="field-hint" id="pagination-status" aria-live="polite">Page 1 sur 4</span>
+                </div>
+                <nav class="am-pagination" aria-label="Pagination de démonstration">
+                  <button class="am-page-button" type="button" data-page-step="-1" aria-label="Page précédente" disabled>←</button>
+                  <button class="am-page-button" type="button" data-page="1" aria-current="page">1</button>
+                  <button class="am-page-button" type="button" data-page="2">2</button>
+                  <button class="am-page-button" type="button" data-page="3">3</button>
+                  <button class="am-page-button" type="button" data-page="4">4</button>
+                  <button class="am-page-button" type="button" data-page-step="1" aria-label="Page suivante">→</button>
+                </nav>
+              </div>
+            </div>
+          </div>
+</section>

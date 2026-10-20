@@ -1,0 +1,240 @@
+<section class="section am-container doc-page">
+  <div class="section-heading">
+    <div><span class="eyebrow">COMPOSANTS</span><h2>Motifs avancés</h2></div>
+    <p>Infobulle, popover, drawer, navigation, combobox, calendrier, carrousel, avatars et menus.</p>
+  </div>
+          <div class="showcase-block am-card">
+            <p class="example-note">Les styles ci-dessous sont fournis par le paquet CSS. Le JavaScript de la vitrine ne fait fonctionner que ses démonstrations interactives.</p>
+            <div class="showcase-grid showcase-grid--three component-family-grid">
+              <article class="component-family-demo am-flow">
+                <h4>Infobulle · Tooltip</h4>
+                <span class="am-tooltip">
+                  <button class="am-button am-button--icon am-tooltip-trigger" type="button" aria-label="Aide sur les délais" aria-describedby="tooltip-deadline">?</button>
+                  <span class="am-tooltip-content" id="tooltip-deadline" role="tooltip">Les délais sont indiqués en jours ouvrés.</span>
+                </span>
+                <p class="example-note">L'infobulle apparaît au survol et au focus ; le texte reste relié avec <code>aria-describedby</code>.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;span class="am-tooltip"&gt;
+  &lt;button aria-describedby="tip"&gt;?&lt;/button&gt;
+  &lt;span id="tip" class="am-tooltip-content" role="tooltip"&gt;Aide&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow">
+                <h4>Popover · Carte contextuelle</h4>
+                <details class="am-popover" data-popover>
+                  <summary class="am-button am-button--secondary am-popover-trigger">Voir le résumé</summary>
+                  <div class="am-popover-panel">
+                    <h5>Projet Forge Connect</h5>
+                    <p>Le prototype est prêt pour la prochaine revue d'équipe.</p>
+                    <a class="am-link" routerLink="/installation">Consulter la documentation</a>
+                  </div>
+                </details>
+                <p class="example-note">Échap ou un clic à l'extérieur ferme la carte ; son déclencheur est un résumé natif.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;details class="am-popover"&gt;
+  &lt;summary class="am-button am-button--secondary am-popover-trigger"&gt;Résumé&lt;/summary&gt;
+  &lt;div class="am-popover-panel"&gt;Contenu contextuel&lt;/div&gt;
+&lt;/details&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow" data-drawer>
+                <h4>Panneau · Drawer / Sheet</h4>
+                <button class="am-button am-button--secondary" type="button" data-drawer-open="demo-drawer">Ouvrir le panneau</button>
+                <dialog class="am-drawer" id="demo-drawer" aria-labelledby="drawer-title">
+                  <div class="am-drawer-content">
+                    <div class="am-drawer-header">
+                      <h3 id="drawer-title">Filtres du projet</h3>
+                      <button class="am-button am-button--icon" type="button" data-drawer-close aria-label="Fermer le panneau">×</button>
+                    </div>
+                    <p>Un panneau latéral natif conserve le contexte et piège le focus pendant son ouverture.</p>
+                    <label class="am-choice"><input type="checkbox" checked> <span>Projets actifs uniquement</span></label>
+                    <button class="am-button am-button--primary" type="button" data-drawer-close>Appliquer les filtres</button>
+                  </div>
+                </dialog>
+                <p class="example-note">Échap, clic sur l'arrière-plan ou les boutons de fermeture permettent de quitter le panneau.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;dialog class="am-drawer" aria-labelledby="drawer-title"&gt;
+  &lt;section class="am-drawer-content"&gt;…&lt;/section&gt;
+&lt;/dialog&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow" data-sidebar-demo>
+                <h4>Navigation · Navbar &amp; sidebar</h4>
+                <div class="am-navbar">
+                  <a class="am-navbar-brand" routerLink="/composants">Espace projets</a>
+                  <button class="am-button am-button--secondary am-sidebar-toggle" type="button" aria-controls="project-nav" aria-expanded="true" data-sidebar-toggle>Masquer les liens</button>
+                  <nav id="project-nav" aria-label="Navigation des projets">
+                    <ul class="am-navbar-links">
+                      <li><a class="am-nav-link" routerLink="/fondations">Vue d'ensemble</a></li>
+                      <li><a class="am-nav-link" routerLink="/composants/actions-navigation" aria-current="page">Composants</a></li>
+                      <li><a class="am-nav-link" routerLink="/installation">Paramètres</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <nav class="am-sidebar" aria-label="Navigation latérale">
+                  <ul class="am-sidebar-links">
+                    <li><a class="am-nav-link" routerLink="/composants" aria-current="page">Projets actifs</a></li>
+                    <li><a class="am-nav-link" routerLink="/composants/actions-navigation">Archives</a></li>
+                  </ul>
+                </nav>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;nav class="am-sidebar" aria-label="Navigation latérale"&gt;
+  &lt;ul class="am-sidebar-links"&gt;…&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow">
+                <h4>Combobox · Autocomplete</h4>
+                <div class="am-combobox" data-combobox>
+                  <label class="am-label" for="project-combobox">Choisir une équipe</label>
+                  <input class="am-input" id="project-combobox" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="team-options" autocomplete="off" placeholder="Saisir une équipe…">
+                  <ul class="am-combobox-list" id="team-options" role="listbox" aria-label="Équipes disponibles" hidden>
+                    <li class="am-combobox-empty" role="presentation" data-combobox-empty hidden>Aucun résultat.</li>
+                    <li class="am-combobox-option" id="team-digital" role="option" aria-selected="false" data-value="Digital">Digital</li>
+                    <li class="am-combobox-option" id="team-innovation" role="option" aria-selected="false" data-value="Innovation">Innovation</li>
+                    <li class="am-combobox-option" id="team-rd" role="option" aria-selected="false" data-value="R&amp;D">R&amp;D</li>
+                    <li class="am-combobox-option" id="team-operations" role="option" aria-selected="false" data-value="Opérations">Opérations</li>
+                  </ul>
+                  <p class="am-sr-only" data-combobox-status role="status" aria-live="polite"></p>
+                </div>
+                <p class="example-note">Flèches, Home, End, Entrée et Échap parcourent et sélectionnent les résultats filtrés.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;input role="combobox" aria-autocomplete="list"
+  aria-expanded="false" aria-controls="results"&gt;
+&lt;ul id="results" role="listbox"&gt;…&lt;/ul&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow">
+                <h4>Calendrier · Date picker</h4>
+                <label class="am-label" for="review-date">Date de la prochaine revue</label>
+                <input class="am-date-picker" id="review-date" type="date" value="2026-10-19" data-calendar>
+                <p class="example-note" id="review-date-status" aria-live="polite">Choisissez une date dans le calendrier natif de votre navigateur.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;label class="am-label" for="review-date"&gt;Date de revue&lt;/label&gt;
+&lt;input class="am-date-picker" id="review-date" type="date"&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow">
+                <h4>Carrousel · Carousel</h4>
+                <div class="am-carousel" data-carousel aria-label="Aperçu des projets">
+                  <div class="am-carousel-viewport">
+                    <article class="am-carousel-slide" id="project-slide-1" data-carousel-slide>
+                      <h5>Forge Connect</h5><p>Un espace de travail pour les équipes numériques.</p>
+                    </article>
+                    <article class="am-carousel-slide" id="project-slide-2" data-carousel-slide hidden>
+                      <h5>Steel Compass</h5><p>Une nouvelle direction pour l'innovation produit.</p>
+                    </article>
+                    <article class="am-carousel-slide" id="project-slide-3" data-carousel-slide hidden>
+                      <h5>Green Horizon</h5><p>Des indicateurs concrets pour les projets durables.</p>
+                    </article>
+                  </div>
+                  <div class="am-carousel-controls">
+                    <button class="am-button am-button--secondary" type="button" data-carousel-step="-1" aria-label="Projet précédent">←</button>
+                    <div class="am-carousel-dots" aria-label="Choisir un projet">
+                      <button class="am-carousel-dot" type="button" data-carousel-page="0" aria-label="Projet 1" aria-current="true"></button>
+                      <button class="am-carousel-dot" type="button" data-carousel-page="1" aria-label="Projet 2" aria-current="false"></button>
+                      <button class="am-carousel-dot" type="button" data-carousel-page="2" aria-label="Projet 3" aria-current="false"></button>
+                    </div>
+                    <button class="am-button am-button--secondary" type="button" data-carousel-step="1" aria-label="Projet suivant">→</button>
+                  </div>
+                  <p class="am-sr-only" data-carousel-status role="status" aria-live="polite">Projet 1 sur 3 : Forge Connect</p>
+                </div>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;section class="am-carousel" aria-label="Projets"&gt;
+  &lt;div class="am-carousel-viewport"&gt;…&lt;/div&gt;
+  &lt;div class="am-carousel-controls"&gt;…&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow">
+                <h4>Chargement · Spinner &amp; skeleton</h4>
+                <div class="loader-demo" role="status" aria-live="polite">
+                  <span class="am-spinner" aria-hidden="true"></span><span>Chargement des statistiques…</span>
+                </div>
+                <div class="am-skeleton-preview" role="group" aria-busy="true" aria-label="Chargement de l'aperçu du projet">
+                  <span class="am-skeleton am-skeleton--title" aria-hidden="true"></span>
+                  <span class="am-skeleton am-skeleton--text" aria-hidden="true"></span>
+                  <span class="am-skeleton am-skeleton--short" aria-hidden="true"></span>
+                </div>
+                <p class="example-note">Le spinner annonce un chargement court ; le skeleton réserve la place du contenu.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;span class="am-spinner" role="status" aria-label="Chargement"&gt;&lt;/span&gt;
+&lt;div aria-busy="true"&gt;
+  &lt;span class="am-skeleton am-skeleton--title"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow">
+                <h4>Identités · Avatar group</h4>
+                <div class="am-avatar-group" role="group" aria-label="Équipe projet : trois personnes visibles et trois autres">
+                  <span class="am-avatar" role="img" aria-label="Camille Martin">CM</span>
+                  <span class="am-avatar" role="img" aria-label="Noah Bernard">NB</span>
+                  <span class="am-avatar" role="img" aria-label="Inès Laurent">IL</span>
+                  <span class="am-avatar am-avatar--count" aria-hidden="true">+3</span>
+                </div>
+                <p class="example-note">Les initiales restent nommées pour les lecteurs d'écran ; le groupe peut s'adapter sans débordement horizontal.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;div class="am-avatar-group" role="group" aria-label="Équipe projet"&gt;
+  &lt;span class="am-avatar" role="img" aria-label="Camille Martin"&gt;CM&lt;/span&gt;
+  &lt;span class="am-avatar am-avatar--count"&gt;+3&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+
+              <article class="component-family-demo am-flow">
+                <h4>Menus · Menubar &amp; context menu</h4>
+                <nav aria-label="Menu de la vitrine">
+                  <ul class="am-menubar" data-menubar role="menubar" aria-label="Sections">
+                    <li role="none"><a class="am-nav-link" role="menuitem" routerLink="/fondations">Fondations</a></li>
+                    <li role="none"><a class="am-nav-link" role="menuitem" routerLink="/composants">Composants</a></li>
+                    <li role="none"><a class="am-nav-link" role="menuitem" routerLink="/installation">Installation</a></li>
+                  </ul>
+                </nav>
+                <div class="am-context-menu" data-context-menu>
+                  <button class="am-button am-button--secondary" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="project-context-actions" data-context-trigger>Actions du projet</button>
+                  <ul class="am-context-menu-popup" id="project-context-actions" role="menu" aria-label="Actions du projet" hidden>
+                    <li role="none"><button type="button" role="menuitem">Renommer le projet</button></li>
+                    <li role="none"><button type="button" role="menuitem">Partager le lien</button></li>
+                    <li role="none"><button type="button" role="menuitem">Archiver le projet</button></li>
+                  </ul>
+                  <p class="am-sr-only" data-context-status role="status" aria-live="polite"></p>
+                </div>
+                <p class="example-note">La barre de menus répond aux flèches ; Échap et un clic extérieur ferment le menu contextuel.</p>
+                <div class="color-example-code" data-code-example>
+                  <button class="code-copy-button" type="button" data-copy-code>Copier le HTML</button>
+                  <pre><code>&lt;ul class="am-menubar" role="menubar"&gt;
+  &lt;li role="none"&gt;&lt;a role="menuitem" href="/projets"&gt;Projets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  <span class="code-copy-status" aria-live="polite"></span>
+                </div>
+              </article>
+            </div>
+          </div>
+</section>

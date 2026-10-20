@@ -1,0 +1,33 @@
+﻿/* Ajustements de la vitrine multi-pages : le reste vient de docs/site.css. */
+
+.doc-page {
+  padding-block: clamp(var(--am-space-4), 5vw, var(--am-space-6)) clamp(var(--am-space-5), 7vw, 6rem);
+}
+
+.doc-page .section-heading > p {
+  max-width: 28rem;
+}
+
+.doc-page .showcase-block > .showcase-grid:first-child,
+.doc-page .showcase-block > .showcase-form:first-child {
+  padding-top: 0;
+}
+
+/* Les pages pleine largeur (accueil, installation) occupent toute la hauteur disponible. */
+#contenu {
+  display: flex;
+  flex-direction: column;
+}
+
+#contenu > :not(router-outlet) {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+app-home-page > .hero,
+app-installation-page > .install-section {
+  display: grid;
+  flex: 1 0 auto;
+  align-content: center;
+}

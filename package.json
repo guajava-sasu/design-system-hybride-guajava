@@ -20,7 +20,9 @@
   "scripts": {
     "dev": "node scripts/serve.js --port 4321",
     "start": "node scripts/serve.js",
-    "test": "node --test"
+    "test": "node --test",
+    "showcase": "npm --prefix showcase start ",
+    "showcase:build": "npm --prefix showcase run build"
   },
   "engines": {
     "node": ">=20"

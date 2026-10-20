@@ -1,0 +1,44 @@
+<section class="section am-container doc-page">
+  <div class="section-heading">
+    <div><span class="eyebrow">COMPOSANTS</span><h2>Formulaires</h2></div>
+    <p>Des champs simples et lisibles, avec leurs libellés, aides et messages.</p>
+  </div>
+          <div class="showcase-block am-card">
+            <form class="showcase-form" id="demo-form">
+              <div class="form-field">
+                <label class="am-label" for="demo-name">Nom complet <span aria-hidden="true">*</span></label>
+                <input class="am-input" id="demo-name" name="name" autocomplete="name" placeholder="Camille Martin" required>
+                <span class="field-hint">Un champ de texte avec son libellé visible.</span>
+              </div>
+              <div class="form-field">
+                <label class="am-label" for="demo-email">Adresse e-mail <span aria-hidden="true">*</span></label>
+                <input class="am-input" id="demo-email" name="email" type="email" autocomplete="email" placeholder="camille&#64;entreprise.com" required>
+                <span class="field-hint">Le navigateur vérifie le format de l'adresse.</span>
+              </div>
+              <div class="form-field form-field--wide">
+                <label class="am-label" for="demo-message">Votre message</label>
+                <textarea class="am-input am-textarea" id="demo-message" name="message" rows="3" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+              </div>
+              <div class="form-field">
+                <label class="am-label" for="demo-topic">Sujet</label>
+                <select class="am-input" id="demo-topic" name="topic">
+                  <option value="">Choisir un sujet</option>
+                  <option>Design system</option>
+                  <option>Accessibilité</option>
+                  <option>Autre demande</option>
+                </select>
+              </div>
+              <fieldset class="form-field form-options">
+                <legend class="am-label">Votre préférence</legend>
+                <label class="am-choice"><input type="radio" name="preference" value="email" checked> <span>Par e-mail</span></label>
+                <label class="am-choice"><input type="radio" name="preference" value="phone"> <span>Par téléphone</span></label>
+                <label class="am-switch"><input type="checkbox" role="switch" checked> <span class="am-switch-track" aria-hidden="true"></span> <span>Activer les notifications</span></label>
+              </fieldset>
+              <label class="am-choice form-field--wide"><input type="checkbox" name="updates"> <span>Recevoir les actualités du design system</span></label>
+              <div class="form-field form-field--wide am-cluster">
+                <button class="am-button am-button--primary" type="submit">Envoyer le formulaire</button>
+                <span class="field-hint" id="form-feedback" role="status" aria-live="polite">Les champs obligatoires sont signalés par un astérisque.</span>
+              </div>
+            </form>
+          </div>
+</section>

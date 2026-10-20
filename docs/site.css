@@ -289,6 +289,7 @@ body {
 
 .art-label {
   position: absolute;
+  z-index: 2;
   color: var(--site-muted);
   font-size: 0.58rem;
   font-family: var(--am-font-family-heading);
@@ -297,7 +298,7 @@ body {
 }
 
 .art-label-top { top: 2.5rem; right: 0; }
-.art-label-bottom { bottom: var(--am-space-4); left: 0; }
+.art-label-bottom { bottom: 0; left: 0; }
 
 .intro-bar {
   border-bottom: 1px solid var(--am-color-border);
@@ -1268,10 +1269,13 @@ body {
 }
 
 .component-family-demo .am-navbar {
+  flex-wrap: wrap;
   align-items: flex-start;
 }
 
-.component-family-demo .am-navbar-links {
+.component-family-demo .am-navbar-links,
+.component-family-demo .am-menubar {
+  flex-wrap: wrap;
   align-items: flex-start;
 }
 

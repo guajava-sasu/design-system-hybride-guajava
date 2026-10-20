@@ -1,0 +1,66 @@
+<section class="section am-container doc-page">
+  <div class="section-heading">
+    <div><span class="eyebrow">COMPOSANTS</span><h2>Actions &amp; navigation</h2></div>
+    <p>Des interactions qui guident : boutons, liens, onglets et fenêtres de dialogue.</p>
+  </div>
+          <div class="showcase-block am-card">
+            <div class="showcase-grid showcase-grid--two">
+              <div class="showcase-example am-flow">
+                <h4>Boutons et états</h4>
+                <div class="am-cluster">
+                  <button class="am-button am-button--primary" type="button" data-toast="Action principale déclenchée.">En savoir plus</button>
+                  <button class="am-button am-button--secondary" type="button" data-toast="Action secondaire déclenchée.">Découvrir</button>
+                  <button class="am-button am-button--secondary" type="button" disabled>Indisponible</button>
+                  <button class="am-button am-button--icon" type="button" aria-label="Ajouter aux favoris" title="Ajouter aux favoris" data-toast="Ajouté aux favoris."><span aria-hidden="true">+</span></button>
+                </div>
+                <p class="example-note">Survolez ou utilisez Tab pour explorer le focus clavier. Les actions principales révèlent une flèche de gauche à droite.</p>
+              </div>
+              <div class="showcase-example am-flow">
+                <h4>Liens et menu</h4>
+                <p>Un lien <a class="am-link" routerLink="/installation">avec un soulignement animé</a> reste reconnaissable et accessible au clavier.</p>
+                <details class="am-menu">
+                  <summary class="am-button am-button--secondary">Ouvrir le menu <span class="am-menu-caret" aria-hidden="true">↓</span></summary>
+                  <ul class="am-menu-list">
+                    <li><a routerLink="/fondations">Fondations</a></li>
+                    <li><a routerLink="/composants">Composants</a></li>
+                    <li><a routerLink="/installation">Installation</a></li>
+                  </ul>
+                </details>
+                <p class="example-note">Le menu utilise un élément natif <code>&lt;details&gt;</code> : il fonctionne sans JavaScript.</p>
+              </div>
+              <div class="showcase-example am-flow showcase-example--wide">
+                <h4>Onglets accessibles</h4>
+                <div class="am-tabs" data-tabs>
+                  <div class="am-tab-list" role="tablist" aria-label="Exemple de navigation par onglets">
+                    <button class="am-tab" id="tab-overview" type="button" role="tab" aria-selected="true" aria-controls="panel-overview" tabindex="0">Aperçu</button>
+                    <button class="am-tab" id="tab-details" type="button" role="tab" aria-selected="false" aria-controls="panel-details" tabindex="-1">Détails</button>
+                    <button class="am-tab" id="tab-usage" type="button" role="tab" aria-selected="false" aria-controls="panel-usage" tabindex="-1">Utilisation</button>
+                  </div>
+                  <section class="am-tab-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+                    <strong>Une expérience cohérente.</strong><p>Les onglets organisent les contenus liés en sections faciles à parcourir.</p>
+                  </section>
+                  <section class="am-tab-panel" id="panel-details" role="tabpanel" aria-labelledby="tab-details" tabindex="0" hidden>
+                    <strong>Navigation au clavier.</strong><p>Les flèches gauche et droite changent d'onglet ; Home et End atteignent le premier et le dernier.</p>
+                  </section>
+                  <section class="am-tab-panel" id="panel-usage" role="tabpanel" aria-labelledby="tab-usage" tabindex="0" hidden>
+                    <strong>HTML et quelques lignes de JavaScript.</strong><p>Les rôles ARIA et les états sélectionnés sont mis à jour à chaque changement.</p>
+                  </section>
+                </div>
+              </div>
+              <div class="showcase-example am-flow">
+                <h4>Boîte de dialogue</h4>
+                <p>Présentez une action importante sans perdre le contexte de la page.</p>
+                <button class="am-button am-button--secondary" type="button" data-dialog-open="demo-dialog">Ouvrir la boîte de dialogue</button>
+                <dialog class="am-dialog" id="demo-dialog" aria-labelledby="dialog-title">
+                  <form method="dialog">
+                    <button class="am-dialog-close" aria-label="Fermer la boîte de dialogue">×</button>
+                    <span class="eyebrow">DIALOGUE</span>
+                    <h3 id="dialog-title">Tout est prêt.</h3>
+                    <p>La balise native <code>&lt;dialog&gt;</code> gère le focus et la touche Échap.</p>
+                    <button class="am-button am-button--primary" value="close">Compris</button>
+                  </form>
+                </dialog>
+              </div>
+            </div>
+          </div>
+</section>
